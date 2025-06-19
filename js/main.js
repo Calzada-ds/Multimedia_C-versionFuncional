@@ -1,56 +1,60 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Set current year in footer
-    document.getElementById("current-year").textContent = new Date().getFullYear()
+    // 1. Año actual en el footer
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+
+    // 2. Función global para reproducir videos
+    window.playVideo = (videoId, thumbnailId, imgId) => {
+        // Ocultar miniatura y mostrar video
+        document.getElementById(thumbnailId).style.display = "none";
+        const videoElement = document.getElementById(videoId);
+        videoElement.style.display = "block";
+        
+        // Reproducir el video automáticamente
+        const videoPlayer = videoElement.querySelector("video");
+        videoPlayer.play();
+        
+        // Pausar otros videos al reproducir uno nuevo
+        document.querySelectorAll(".video-iframe").forEach(video => {
+            if (video.id !== videoId) {
+                video.style.display = "none";
+                const thumbId = video.id.replace("video", "thumbnail");
+                document.getElementById(thumbId).style.display = "block";
+                const otherVideo = video.querySelector("video");
+                if (otherVideo) otherVideo.pause();
+            }
+        });
+    };
+
+    // 3. Botón de reinicio para videos
+    document.querySelectorAll("video").forEach(video => {
+        video.addEventListener("ended", () => {
+            video.currentTime = 0;
+        });
+    });
   
-    // Video player functionality
-    const playBtn = document.querySelector(".play-btn")
-    const videoThumbnail = document.querySelector(".video-thumbnail")
-    const videoIframe = document.querySelector(".video-iframe")
-    const videoItems = document.querySelectorAll(".video-item")
-  
-    if (playBtn && videoThumbnail && videoIframe) {
-      playBtn.addEventListener("click", () => {
-        videoThumbnail.style.display = "none"
-        videoIframe.style.display = "block"
-        videoIframe.querySelector("iframe").src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
-      })
-    }
-  
-    if (videoItems) {
-      videoItems.forEach((item) => {
-        item.addEventListener("click", () => {
-          if (videoThumbnail && videoIframe) {
-            videoThumbnail.style.display = "none"
-            videoIframe.style.display = "block"
-            videoIframe.querySelector("iframe").src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
-          }
-        })
-      })
-    }
-  
-    // Chat functionality
-    const chatButton = document.querySelector(".chat-button")
-    const chatContainer = document.getElementById("chat-container")
-    const closeChat = document.querySelector(".close-chat")
-    const chatTriggers = document.querySelectorAll(".chat-trigger")
-  
+    // 4. Funcionalidad del chat
+    const chatButton = document.querySelector(".chat-button");
+    const chatContainer = document.getElementById("chat-container");
+    const closeChat = document.querySelector(".close-chat");
+    const chatTriggers = document.querySelectorAll(".chat-trigger");
+
     if (chatButton && chatContainer && closeChat) {
-      chatButton.addEventListener("click", () => {
-        chatContainer.classList.toggle("hidden")
-      })
-  
-      closeChat.addEventListener("click", () => {
-        chatContainer.classList.add("hidden")
-      })
+        chatButton.addEventListener("click", () => {
+            chatContainer.classList.toggle("hidden");
+        });
+
+        closeChat.addEventListener("click", () => {
+            chatContainer.classList.add("hidden");
+        });
     }
-  
+
     if (chatTriggers) {
-      chatTriggers.forEach((trigger) => {
-        trigger.addEventListener("click", () => {
-          if (chatContainer) {
-            chatContainer.classList.remove("hidden")
-          }
-        })
-      })
+        chatTriggers.forEach((trigger) => {
+            trigger.addEventListener("click", () => {
+                if (chatContainer) {
+                    chatContainer.classList.remove("hidden");
+                }
+            });
+        });
     }
-  })
+});  // <-- Cierre correcto del único DOMContentLoaded

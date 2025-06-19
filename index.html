@@ -128,65 +128,84 @@
             </div>
         </section>
 
-        <!-- Welcome Video Section -->
-        <section class="video-section">
-            <div class="container">
-                <h2 class="section-title">Conoce Nuestros Servicios</h2>
-                <div class="video-container">
-                    <div class="main-video">
-                        <div class="video-thumbnail">
-                            <img src="https://placehold.co/1280x720" alt="Miniatura del video de bienvenida">
-                            <button class="play-btn">
-                                <i class="fas fa-play"></i>
-                            </button>
-                            <div class="video-info">
-                                <h3>Video de Bienvenida</h3>
-                                <p>Conoce los servicios y trámites disponibles en UPIICSA</p>
-                            </div>
-                        </div>
-                        <div class="video-iframe" style="display: none;">
-                            <iframe width="100%" height="100%" src="/placeholder.svg"
-                                title="Video de bienvenida UPIICSA" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
-                        </div>
+<!-- Welcome Video Section -->
+<section class="video-section">
+    <div class="container">
+        <h2 class="section-title">Conoce Nuestros Servicios</h2>
+        <div class="video-container">
+            <div class="main-video">
+                <div class="video-thumbnail" id="thumbnail1">
+                    <!-- Aquí reemplaza la imagen por la miniatura del video -->
+                    <img src="public/img/A_3.png" alt="Miniatura del video de bienvenida" id="imgThumbnail1">
+                    <button class="play-btn" onclick="playVideo('video1', 'thumbnail1', 'imgThumbnail1')">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <div class="video-info">
+                        <h3>Video de Bienvenida</h3>
+                        <p>Conoce los servicios y trámites disponibles en UPIICSA</p>
                     </div>
+                </div>
+                <div class="video-iframe" id="video1" style="display: none;">
+                    <!-- Video que se muestra después de hacer clic -->
+                    <video width="100%" height="100%" controls>
+                        <source src="public/video/Video de presentación .mp4" type="video/mp4">
+                        Tu navegador no soporta la etiqueta de video.
+                    </video>
+                </div>
+            </div>
 
-                    <div class="video-grid">
-                        <div class="video-item">
-                            <div class="video-thumbnail-small">
-                                <img src="https://placehold.co/320x180" alt="Guía de Titulación">
-                                <div class="play-icon">
-                                    <i class="fas fa-play"></i>
-                                </div>
-                                <div class="duration">5:24</div>
-                            </div>
-                            <h4>Guía de Titulación</h4>
+            <div class="video-grid">
+                <div class="video-item">
+                    <div class="video-thumbnail-small" id="thumbnail2">
+                        <img src="public/img/Titulacion.png" alt="Guía de Titulación" id="imgThumbnail2">
+                        <div class="play-icon" onclick="playVideo('video2', 'thumbnail2', 'imgThumbnail2')">
+                            <i class="fas fa-play"></i>
                         </div>
-                        <div class="video-item">
-                            <div class="video-thumbnail-small">
-                                <img src="https://placehold.co/320x180" alt="Proceso de Servicio Social">
-                                <div class="play-icon">
-                                    <i class="fas fa-play"></i>
-                                </div>
-                                <div class="duration">4:18</div>
-                            </div>
-                            <h4>Proceso de Servicio Social</h4>
+                        <div class="duration">5:24</div>
+                    </div>
+                    <h4>Guía de Titulación</h4>
+                    <div class="video-iframe" id="video2" style="display: none;">
+                        <video width="100%" height="100%" controls>
+                            <source src="public/video/" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <div class="video-item">
+                    <div class="video-thumbnail-small" id="thumbnail3">
+                        <img src="public/img/ServicioSocial.png" alt="Proceso de Servicio Social" id="imgThumbnail3">
+                        <div class="play-icon" onclick="playVideo('video3', 'thumbnail3', 'imgThumbnail3')">
+                            <i class="fas fa-play"></i>
                         </div>
-                        <div class="video-item">
-                            <div class="video-thumbnail-small">
-                                <img src="https://placehold.co/320x180" alt="Prácticas Profesionales">
-                                <div class="play-icon">
-                                    <i class="fas fa-play"></i>
-                                </div>
-                                <div class="duration">3:45</div>
-                            </div>
-                            <h4>Prácticas Profesionales</h4>
+                        <div class="duration">4:18</div>
+                    </div>
+                    <h4>Servicio Social</h4>
+                    <div class="video-iframe" id="video3" style="display: none;">
+                        <video width="100%" height="100%" controls>
+                            <source src="public/video/Francisco y el servicio social .mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <div class="video-item">
+                    <div class="video-thumbnail-small" id="thumbnail4">
+                        <img src="public/img/PracticasProfesionales.png" alt="Prácticas Profesionales" id="imgThumbnail4">
+                        <div class="play-icon" onclick="playVideo('video4', 'thumbnail4', 'imgThumbnail4')">
+                            <i class="fas fa-play"></i>
                         </div>
+                        <div class="duration">3:45</div>
+                    </div>
+                    <h4>Prácticas Profesionales</h4>
+                    <div class="video-iframe" id="video4" style="display: none;">
+                        <video width="100%" height="100%" controls>
+                            <source src="videos/practicas_profesionales.mp4" type="video/mp4">
+                        </video>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
 <!-- Footer --> 
 <footer class="footer">
