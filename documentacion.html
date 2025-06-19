@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Integral de Prácticas y Servicio Social de UPIICSA</title>
+    <link rel="stylesheet" href="public/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header-->
+ <header class="header">
+        <!-- Fila de logos -->
+          <div class="container logos-row">
+            <img src="public/img/U_Logo.png" alt="Logo UPIICSA" class="logo logo-side">
+            <img src="public/img/LogoM.png" alt="Mi Logo" class="logo logo-center">
+            <img src="public/img/IPN_Logo.png" alt="Logo IPN" class="logo logo-side">
+        </div>
+
+        <!-- Fila de título -->
+        <div class="container title-row">
+            <h1 class="site-title">Portal Integral de Prácticas y Servicio Social de UPIICSA</h1>
+        </div>
+
+        <!-- Fila de navegación -->
+        <div class="container nav-row">
+            <!-- Checkbox oculto para controlar el menú móvil -->
+            <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+            
+            <!-- Label que funciona como botón hamburguesa -->
+            <label for="menu-toggle" class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </label>
+
+            <!-- Menú principal -->
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="titulacion.html">Titulación</a></li>
+                    <li><a href="servicio-social.html">Servicio Social</a></li>
+                    <li><a href="practicas.html">Prácticas Profesionales</a></li>
+                    <li><a href="documentacion.html">Documentación</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="back-link">
+                <a href="index.html">
+                    <i class="fas fa-arrow-left"></i>
+                    Volver al inicio
+                </a>
+            </div>
+            <!-- Contenido y 3D -->
+
+            <!-- Contenido y 3D -->
+            <div class="page-content">
+                <div class="page-header">
+                    <model-viewer src="FBX_F/Libreo 3D.glb" alt="Dragon" auto-rotate
+                        >
+                    </model-viewer>
+
+                    <div class="text-container">
+                        <h1>Documentación y Formatos</h1>
+                        <p>Accede a todos los formatos, guías y documentos necesarios para tus trámites académicos en
+                            UPIICSA.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <!-- Search and Filter -->
+                <div class="search-filter">
+                    <div class="search-container">
+                        <input type="text" placeholder="Buscar documentos..." class="search-input">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                    <div class="filter-container">
+                        <select class="filter-select">
+                            <option value="">Todos los trámites</option>
+                            <option value="titulacion">Titulación</option>
+                            <option value="servicio">Servicio Social</option>
+                            <option value="practicas">Prácticas Profesionales</option>
+                            <option value="escolares">Trámites Escolares</option>
+                        </select>
+                        <i class="fas fa-filter filter-icon"></i>
+                        <i class="fas fa-chevron-down select-arrow"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Categorías de Documentos</h2>
+                <div class="document-categories">
+                    <a href="#" class="document-category blue">
+                        <div class="category-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Titulación</h3>
+                        <p>12 documentos</p>
+                    </a>
+                    <a href="#" class="document-category green">
+                        <div class="category-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3>Servicio Social</h3>
+                        <p>8 documentos</p>
+                    </a>
+                    <a href="#" class="document-category purple">
+                        <div class="category-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3>Prácticas Profesionales</h3>
+                        <p>6 documentos</p>
+                    </a>
+                    <a href="#" class="document-category amber">
+                        <div class="category-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Trámites Escolares</h3>
+                        <p>15 documentos</p>
+                    </a>
+                    <a href="#" class="document-category emerald">
+                        <div class="category-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <h3>Becas</h3>
+                        <p>5 documentos</p>
+                    </a>
+                    <a href="#" class="document-category indigo">
+                        <div class="category-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>Movilidad Académica</h3>
+                        <p>4 documentos</p>
+                    </a>
+                    <a href="#" class="document-category rose">
+                        <div class="category-icon">
+                            <i class="fas fa-file"></i>
+                        </div>
+                        <h3>Constancias</h3>
+                        <p>7 documentos</p>
+                    </a>
+                    <a href="#" class="document-category slate">
+                        <div class="category-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Reglamentos</h3>
+                        <p>9 documentos</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <div class="section-header">
+                    <h2>Documentos Recientes</h2>
+                    <a href="#" class="view-all">Ver todos</a>
+                </div>
+                <div class="recent-documents">
+                    <div class="document-row">
+                        <div class="document-info">
+                            <h3>Formato de registro de opción de titulación</h3>
+                            <div class="document-meta">
+                                <span class="document-category-tag">Titulación</span>
+                                <span class="document-date">
+                                    <i class="fas fa-clock"></i>
+                                    Actualizado: 15/04/2023
+                                </span>
+                            </div>
+                        </div>
+                        <div class="document-actions">
+                            <span class="document-type">PDF</span>
+                            <span class="document-size">245 KB</span>
+                            <button class="download-btn">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="document-row">
+                        <div class="document-info">
+                            <h3>Guía para elaboración de informe de servicio social</h3>
+                            <div class="document-meta">
+                                <span class="document-category-tag">Servicio Social</span>
+                                <span class="document-date">
+                                    <i class="fas fa-clock"></i>
+                                    Actualizado: 02/03/2023
+                                </span>
+                            </div>
+                        </div>
+                        <div class="document-actions">
+                            <span class="document-type">PDF</span>
+                            <span class="document-size">1.2 MB</span>
+                            <button class="download-btn">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="document-row">
+                        <div class="document-info">
+                            <h3>Formato de carta de presentación para prácticas</h3>
+                            <div class="document-meta">
+                                <span class="document-category-tag">Prácticas Profesionales</span>
+                                <span class="document-date">
+                                    <i class="fas fa-clock"></i>
+                                    Actualizado: 20/02/2023
+                                </span>
+                            </div>
+                        </div>
+                        <div class="document-actions">
+                            <span class="document-type">DOCX</span>
+                            <span class="document-size">78 KB</span>
+                            <button class="download-btn">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="document-row">
+                        <div class="document-info">
+                            <h3>Solicitud de constancia de estudios</h3>
+                            <div class="document-meta">
+                                <span class="document-category-tag">Trámites Escolares</span>
+                                <span class="document-date">
+                                    <i class="fas fa-clock"></i>
+                                    Actualizado: 10/01/2023
+                                </span>
+                            </div>
+                        </div>
+                        <div class="document-actions">
+                            <span class="document-type">PDF</span>
+                            <span class="document-size">125 KB</span>
+                            <button class="download-btn">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="document-row">
+                        <div class="document-info">
+                            <h3>Calendario académico 2023-2024</h3>
+                            <div class="document-meta">
+                                <span class="document-category-tag">Trámites Escolares</span>
+                                <span class="document-date">
+                                    <i class="fas fa-clock"></i>
+                                    Actualizado: 05/01/2023
+                                </span>
+                            </div>
+                        </div>
+                        <div class="document-actions">
+                            <span class="document-type">PDF</span>
+                            <span class="document-size">350 KB</span>
+                            <button class="download-btn">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Documentos Más Solicitados</h2>
+                <div class="popular-documents">
+                    <div class="document-card">
+                        <div class="document-card-content">
+                            <h3>Formato de registro de titulación</h3>
+                            <p>Documento oficial para iniciar el proceso de titulación.</p>
+                            <div class="document-card-meta">
+                                <span class="document-category-tag">Titulación</span>
+                                <span class="document-downloads">1,250 descargas</span>
+                            </div>
+                        </div>
+                        <div class="document-card-footer">
+                            <span class="document-format">PDF · 245 KB</span>
+                            <button class="download-link">
+                                <i class="fas fa-download"></i>
+                                <span>Descargar</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="document-card">
+                        <div class="document-card-content">
+                            <h3>Carta de liberación de servicio social</h3>
+                            <p>Formato para solicitar la liberación del servicio social.</p>
+                            <div class="document-card-meta">
+                                <span class="document-category-tag">Servicio Social</span>
+                                <span class="document-downloads">980 descargas</span>
+                            </div>
+                        </div>
+                        <div class="document-card-footer">
+                            <span class="document-format">PDF · 245 KB</span>
+                            <button class="download-link">
+                                <i class="fas fa-download"></i>
+                                <span>Descargar</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="document-card">
+                        <div class="document-card-content">
+                            <h3>Solicitud de constancia de estudios</h3>
+                            <p>Formato para solicitar constancias oficiales.</p>
+                            <div class="document-card-meta">
+                                <span class="document-category-tag">Trámites Escolares</span>
+                                <span class="document-downloads">875 descargas</span>
+                            </div>
+                        </div>
+                        <div class="document-card-footer">
+                            <span class="document-format">PDF · 245 KB</span>
+                            <button class="download-link">
+                                <i class="fas fa-download"></i>
+                                <span>Descargar</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="document-card">
+                        <div class="document-card-content">
+                            <h3>Guía para elaboración de tesis</h3>
+                            <p>Lineamientos oficiales para la elaboración de tesis.</p>
+                            <div class="document-card-meta">
+                                <span class="document-category-tag">Titulación</span>
+                                <span class="document-downloads">750 descargas</span>
+                            </div>
+                        </div>
+                        <div class="document-card-footer">
+                            <span class="document-format">PDF · 245 KB</span>
+                            <button class="download-link">
+                                <i class="fas fa-download"></i>
+                                <span>Descargar</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="document-card">
+                        <div class="document-card-content">
+                            <h3>Formato de reporte bimestral</h3>
+                            <p>Para reportar avances del servicio social.</p>
+                            <div class="document-card-meta">
+                                <span class="document-category-tag">Servicio Social</span>
+                                <span class="document-downloads">720 descargas</span>
+                            </div>
+                        </div>
+                        <div class="document-card-footer">
+                            <span class="document-format">PDF · 245 KB</span>
+                            <button class="download-link">
+                                <i class="fas fa-download"></i>
+                                <span>Descargar</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="document-card">
+                        <div class="document-card-content">
+                            <h3>Calendario de trámites</h3>
+                            <p>Fechas importantes para trámites académicos.</p>
+                            <div class="document-card-meta">
+                                <span class="document-category-tag">Trámites Escolares</span>
+                                <span class="document-downloads">695 descargas</span>
+                            </div>
+                        </div>
+                        <div class="document-card-footer">
+                            <span class="document-format">PDF · 245 KB</span>
+                            <button class="download-link">
+                                <i class="fas fa-download"></i>
+                                <span>Descargar</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+
+<!-- Footer --> 
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>UPIICSA</h3>
+                <p>Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas</p>
+                <!-- Se eliminó la línea de la dirección y se agregó el iframe del mapa -->
+                <div class="footer-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.3822354344256!2d-99.09442242565133!3d19.39588398187569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fc2e3efc321b%3A0xabf8454acb3a3a99!2sUPIICSA%20%E2%80%93%20Unidad%20Profesional%20Interdisciplinaria%20de%20Ingenier%C3%ADa%20y%20Ciencias%20Sociales%20y%20Administrativas%20IPN!5e0!3m2!1ses-419!2smx!4v1750303311647!5m2!1ses-419!2smx" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Enlaces</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="titulacion.html">Titulación</a></li>
+                    <li><a href="servicio-social.html">Servicio Social</a></li>
+                    <li><a href="practicas.html">Prácticas Profesionales</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>Teléfono: 55 5624 2000</li>
+                    <li>Email: gustavo.mazcorro@gmail.com</li>
+                    <li class="social-icons">
+                        <a href="https://www.facebook.com/upiicsa.ipn.oficial?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/upiicsa_oficial?igsh=MTUyaXJpaGtiM2UwZA==" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p> <span id="current-year"></span> UPIICSA - Instituto Politécnico Nacional. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/chat.js"></script>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+
+</body>
+
+</html>

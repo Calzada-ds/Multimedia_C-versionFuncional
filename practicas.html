@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Integral de Prácticas y Servicio Social de UPIICSA</title>
+    <link rel="stylesheet" href="public/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header-->
+    <header class="header">
+        <!-- Fila de logos -->
+          <div class="container logos-row">
+            <img src="public/img/U_Logo.png" alt="Logo UPIICSA" class="logo logo-side">
+            <img src="public/img/LogoM.png" alt="Mi Logo" class="logo logo-center">
+            <img src="public/img/IPN_Logo.png" alt="Logo IPN" class="logo logo-side">
+        </div>
+
+        <!-- Fila de título -->
+        <div class="container title-row">
+            <h1 class="site-title">Portal Integral de Prácticas y Servicio Social de UPIICSA</h1>
+        </div>
+
+        <!-- Fila de navegación -->
+        <div class="container nav-row">
+            <!-- Checkbox oculto para controlar el menú móvil -->
+            <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+            
+            <!-- Label que funciona como botón hamburguesa -->
+            <label for="menu-toggle" class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </label>
+
+            <!-- Menú principal -->
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="titulacion.html">Titulación</a></li>
+                    <li><a href="servicio-social.html">Servicio Social</a></li>
+                    <li><a href="practicas.html">Prácticas Profesionales</a></li>
+                    <li><a href="documentacion.html">Documentación</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="back-link">
+                <a href="index.html">
+                    <i class="fas fa-arrow-left"></i>
+                    Volver al inicio
+                </a>
+            </div>
+
+            <!-- Contenido y 3D -->
+            <div class="page-content">
+                <div class="page-header">
+                    <model-viewer src="FBX_F/Tuerca3D.glb" alt="Dragon" auto-rotate
+                       >
+                    </model-viewer>
+
+                    <div class="text-container">
+                        <h1>Prácticas Profesionales</h1>
+                        <p>Información completa sobre las prácticas profesionales, empresas participantes, requisitos y
+                            proceso de validación.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <div class="info-cards">
+                    <div class="info-card purple">
+                        <h3>Información General</h3>
+                        <ul class="check-list">
+                            <li>Duración: 240-480 horas</li>
+                            <li>Requisito: 70% de créditos aprobados</li>
+                            <li>Opcional pero recomendado</li>
+                            <li>Periodos de registro: Todo el año</li>
+                            <li>Posibilidad de remuneración</li>
+                            <li>Constancia al finalizar</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card blue">
+                        <h3>Beneficios</h3>
+                        <ul class="check-list">
+                            <li>Experiencia laboral real</li>
+                            <li>Aplicación de conocimientos</li>
+                            <li>Desarrollo de habilidades profesionales</li>
+                            <li>Networking profesional</li>
+                            <li>Posibilidad de contratación</li>
+                            <li>Apoyo económico (en la mayoría)</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card amber">
+                        <h3>Áreas de Oportunidad</h3>
+                        <ul class="briefcase-list">
+                            <li>Desarrollo de software</li>
+                            <li>Ingeniería industrial</li>
+                            <li>Administración y finanzas</li>
+                            <li>Logística y cadena de suministro</li>
+                            <li>Marketing digital</li>
+                            <li>Recursos humanos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Proceso de Prácticas Profesionales</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-number purple">1</div>
+                        <div class="timeline-content">
+                            <h3>Verificación de requisitos</h3>
+                            <p>Asegúrate de contar con al menos el 70% de los créditos de tu plan de estudios.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-number purple">2</div>
+                        <div class="timeline-content">
+                            <h3>Búsqueda de empresa</h3>
+                            <p>Consulta el catálogo de empresas con convenio o busca por tu cuenta una empresa de tu
+                                interés.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-number purple">3</div>
+                        <div class="timeline-content">
+                            <h3>Solicitud de carta de presentación</h3>
+                            <p>Solicita en la Coordinación de Prácticas Profesionales una carta de presentación para la
+                                empresa.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-number purple">4</div>
+                        <div class="timeline-content">
+                            <h3>Entrevista y selección</h3>
+                            <p>Asiste a entrevistas en las empresas de tu interés hasta ser seleccionado.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-number purple">5</div>
+                        <div class="timeline-content">
+                            <h3>Carta de aceptación</h3>
+                            <p>Obtén la carta de aceptación de la empresa y entrégala en la Coordinación.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-number purple">6</div>
+                        <div class="timeline-content">
+                            <h3>Registro oficial</h3>
+                            <p>Completa el formato de registro de prácticas profesionales con los datos de la empresa.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-number purple">7</div>
+                        <div class="timeline-content">
+                            <h3>Realización de prácticas</h3>
+                            <p>Cumple con las horas establecidas y las actividades asignadas por la empresa.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-number purple">8</div>
+                        <div class="timeline-content">
+                            <h3>Reportes mensuales</h3>
+                            <p>Entrega reportes mensuales de actividades firmados por tu supervisor directo.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-number purple">9</div>
+                        <div class="timeline-content">
+                            <h3>Informe final</h3>
+                            <p>Elabora y entrega tu informe final de actividades al concluir las prácticas.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-number purple">10</div>
+                        <div class="timeline-content">
+                            <h3>Constancia de terminación</h3>
+                            <p>Solicita tu constancia de terminación en la empresa y entrégala para obtener tu
+                                constancia UPIICSA.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section two-columns">
+                <div class="column">
+                    <h2>Empresas Destacadas</h2>
+                    <div class="company-list">
+                        <div class="company-item">
+                            <img src="https://placehold.co/60x60" alt="Microsoft México" class="company-logo">
+                            <div class="company-info">
+                                <h3>Microsoft México</h3>
+                                <p>Desarrollo de software, inteligencia artificial y soporte técnico.</p>
+                            </div>
+                        </div>
+                        <div class="company-item">
+                            <img src="https://placehold.co/60x60" alt="BBVA" class="company-logo">
+                            <div class="company-info">
+                                <h3>BBVA</h3>
+                                <p>Finanzas, desarrollo de aplicaciones y análisis de datos.</p>
+                            </div>
+                        </div>
+                        <div class="company-item">
+                            <img src="https://placehold.co/60x60" alt="Grupo Bimbo" class="company-logo">
+                            <div class="company-info">
+                                <h3>Grupo Bimbo</h3>
+                                <p>Logística, administración industrial y cadena de suministro.</p>
+                            </div>
+                        </div>
+                        <div class="company-item">
+                            <img src="https://placehold.co/60x60" alt="Amazon México" class="company-logo">
+                            <div class="company-info">
+                                <h3>Amazon México</h3>
+                                <p>Logística, desarrollo de software y atención al cliente.</p>
+                            </div>
+                        </div>
+                        <div class="company-item">
+                            <img src="https://placehold.co/60x60" alt="Pemex" class="company-logo">
+                            <div class="company-info">
+                                <h3>Pemex</h3>
+                                <p>Ingeniería industrial, sistemas y administración.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="view-all-link">Ver todas las empresas</a>
+                </div>
+
+                <div class="column">
+                    <h2>Documentos Descargables</h2>
+                    <div class="document-list">
+                        <div class="document-item">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Formato de solicitud de prácticas</span>
+                            <a href="#" class="download-link">
+                                <i class="fas fa-download"></i>
+                                <span>Descargar</span>
+                            </a>
+                        </div>
+                        <div class="document-item">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Formato de reporte mensual</span>
+                            <a href="#" class="download-link">
+                                <i class="fas fa-download"></i>
+                                <span>Descargar</span>
+                            </a>
+                        </div>
+                        <div class="document-item">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Guía para elaboración de informe final</span>
+                            <a href="#" class="download-link">
+                                <i class="fas fa-download"></i>
+                                <span>Descargar</span>
+                            </a>
+                        </div>
+                        <div class="document-item">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Formato de carta de terminación</span>
+                            <a href="#" class="download-link">
+                                <i class="fas fa-download"></i>
+                                <span>Descargar</span>
+                            </a>
+                        </div>
+                        <div class="document-item">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Lineamientos de prácticas profesionales</span>
+                            <a href="#" class="download-link">
+                                <i class="fas fa-download"></i>
+                                <span>Descargar</span>
+                            </a>
+                        </div>
+                        <div class="document-item">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Directorio de empresas con convenio</span>
+                            <a href="#" class="download-link">
+                                <i class="fas fa-download"></i>
+                                <span>Descargar</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="fair-info">
+                        <i class="fas fa-building"></i>
+                        <div>
+                            <h3>Feria de Prácticas Profesionales</h3>
+                            <p>Cada semestre organizamos una feria donde empresas de diversos sectores presentan sus
+                                programas de prácticas profesionales. ¡No te la pierdas!</p>
+                            <div class="fair-details">
+                                <h4>Próxima Feria</h4>
+                                <p><i class="fas fa-calendar"></i> Fecha: 15-16 de Agosto, 2023</p>
+                                <p><i class="fas fa-clock"></i> Horario: 10:00 - 18:00 hrs</p>
+                                <p><i class="fas fa-map-marker-alt"></i> Lugar: Auditorio A, UPIICSA</p>
+                            </div>
+                            <a href="#" class="btn primary-btn">
+                                <i class="fas fa-info-circle"></i>
+                                Más información
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+
+<!-- Footer --> 
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>UPIICSA</h3>
+                <p>Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas</p>
+                <!-- Se eliminó la línea de la dirección y se agregó el iframe del mapa -->
+                <div class="footer-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.3822354344256!2d-99.09442242565133!3d19.39588398187569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fc2e3efc321b%3A0xabf8454acb3a3a99!2sUPIICSA%20%E2%80%93%20Unidad%20Profesional%20Interdisciplinaria%20de%20Ingenier%C3%ADa%20y%20Ciencias%20Sociales%20y%20Administrativas%20IPN!5e0!3m2!1ses-419!2smx!4v1750303311647!5m2!1ses-419!2smx" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Enlaces</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="titulacion.html">Titulación</a></li>
+                    <li><a href="servicio-social.html">Servicio Social</a></li>
+                    <li><a href="practicas.html">Prácticas Profesionales</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>Teléfono: 55 5624 2000</li>
+                    <li>Email: gustavo.mazcorro@gmail.com</li>
+                    <li class="social-icons">
+                        <a href="https://www.facebook.com/upiicsa.ipn.oficial?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/upiicsa_oficial?igsh=MTUyaXJpaGtiM2UwZA==" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p> <span id="current-year"></span> UPIICSA - Instituto Politécnico Nacional. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/chat.js"></script>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+
+</body>
+
+</html>

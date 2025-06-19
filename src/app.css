@@ -1,0 +1,28 @@
+/* ————— Contenedor raíz de la app (solo chat/Convai) ————— */
+#convai-root {
+  bottom: 0;
+  right: 1.5rem;
+  width: 360px;                   /* ancho del chat */
+  height: 600px;                  /* alto exacto del ChatBubble */
+  overflow: hidden;               /* recorta todo lo que sobre */
+  pointer-events: none;           
+  z-index: 9999;
+  background: transparent;
+}
+
+/* ————— Contenedor del ChatBubble dentro de #convai-root ————— */
+#convai-root .convai-chatui-container {
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 100%;
+  pointer-events: auto;           /* habilita interacciones */
+}
+
+#convai-root .convai-chatui-container > * {
+  height: 100%;
+}
+
+
+
+
