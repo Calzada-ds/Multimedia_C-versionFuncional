@@ -1023,16 +1023,23 @@ section:nth-child(even) {
   font-size: 0.85rem;
 }
 
-/* Responsive */
 @media (max-width: 1024px) {
   .video-section {
     padding: 50px 16px;
+  }
+
+  .main-video-container {
+    width: 100%; /* Que ocupe todo el ancho disponible */
   }
 }
 
 @media (max-width: 768px) {
   .section-title {
     font-size: 1.75rem;
+  }
+
+  .main-video-container {
+    width: 100%; /* Asegura ancho completo en tablets */
   }
 
   .video-placeholder i {
@@ -1055,6 +1062,10 @@ section:nth-child(even) {
 @media (max-width: 480px) {
   .section-title {
     font-size: 1.5rem;
+  }
+
+  .main-video-container {
+    width: 100%; /* Ocupa todo en móviles */
   }
 
   .video-item {
