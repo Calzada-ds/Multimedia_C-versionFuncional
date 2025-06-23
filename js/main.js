@@ -1,60 +1,52 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // 1. Año actual en el footer
-    document.getElementById("current-year").textContent = new Date().getFullYear();
-
-    // 2. Función global para reproducir videos
-    window.playVideo = (videoId, thumbnailId, imgId) => {
-        // Ocultar miniatura y mostrar video
-        document.getElementById(thumbnailId).style.display = "none";
-        const videoElement = document.getElementById(videoId);
-        videoElement.style.display = "block";
-        
-        // Reproducir el video automáticamente
-        const videoPlayer = videoElement.querySelector("video");
-        videoPlayer.play();
-        
-        // Pausar otros videos al reproducir uno nuevo
-        document.querySelectorAll(".video-iframe").forEach(video => {
-            if (video.id !== videoId) {
-                video.style.display = "none";
-                const thumbId = video.id.replace("video", "thumbnail");
-                document.getElementById(thumbId).style.display = "block";
-                const otherVideo = video.querySelector("video");
-                if (otherVideo) otherVideo.pause();
+ document.addEventListener("DOMContentLoaded", () => {
+            // Set current year in footer
+            document.getElementById("current-year").textContent = new Date().getFullYear();
+            
+            // Get all video items
+            const videoItems = document.querySelectorAll('.video-item');
+            
+            // Get main video elements
+            const mainVideo = document.getElementById('main-video');
+            const mainVideoPlaceholder = document.getElementById('main-video-placeholder');
+            const mainVideoPlayer = mainVideo.querySelector('video');
+            
+            // Function to load a new video in the main player
+            function loadMainVideo(videoSrc, title, description) {
+                // Update video source
+                mainVideoPlayer.src = videoSrc;
+                
+                // Update placeholder content
+                mainVideoPlaceholder.querySelector('h3').textContent = title;
+                mainVideoPlaceholder.querySelector('p').textContent = description;
+                
+                // Show video and hide placeholder
+                mainVideo.style.display = 'block';
+                mainVideoPlaceholder.style.display = 'none';
+                
+                // Play the video
+                mainVideoPlayer.play();
             }
-        });
-    };
-
-    // 3. Botón de reinicio para videos
-    document.querySelectorAll("video").forEach(video => {
-        video.addEventListener("ended", () => {
-            video.currentTime = 0;
-        });
-    });
-  
-    // 4. Funcionalidad del chat
-    const chatButton = document.querySelector(".chat-button");
-    const chatContainer = document.getElementById("chat-container");
-    const closeChat = document.querySelector(".close-chat");
-    const chatTriggers = document.querySelectorAll(".chat-trigger");
-
-    if (chatButton && chatContainer && closeChat) {
-        chatButton.addEventListener("click", () => {
-            chatContainer.classList.toggle("hidden");
-        });
-
-        closeChat.addEventListener("click", () => {
-            chatContainer.classList.add("hidden");
-        });
-    }
-
-    if (chatTriggers) {
-        chatTriggers.forEach((trigger) => {
-            trigger.addEventListener("click", () => {
-                if (chatContainer) {
-                    chatContainer.classList.remove("hidden");
-                }
+            
+            // Add click event to each video item
+            videoItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    // Get video data from data attributes
+                    const videoSrc = item.getAttribute('data-video');
+                    const title = item.getAttribute('data-title');
+                    const description = item.getAttribute('data-description');
+                    
+                    // Load the selected video in the main player
+                    loadMainVideo(videoSrc, title, description);
+                    
+                    // Update active state
+                    videoItems.forEach(v => v.classList.remove('active'));
+                    item.classList.add('active');
+                });
+            });
+            
+            // Reset to placeholder when video ends
+            mainVideoPlayer.addEventListener('ended', () => {
+                mainVideo.style.display = 'none';
+                mainVideoPlaceholder.style.display = 'flex';
             });
         });
-    }
-});  // <-- Cierre correcto del único DOMContentLoaded
