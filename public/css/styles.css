@@ -1058,7 +1058,7 @@ section:nth-child(even) {
   }
 
   .video-item {
-    width: 90%;
+    width: 100%;
     max-width: 100%;
   }
 
