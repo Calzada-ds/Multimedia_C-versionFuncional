@@ -1081,7 +1081,7 @@ section:nth-child(even) {
   }
 
   .main-video-container {
-    width: 100%;
+    width: 150%;
   }
 
   .video-grid {
@@ -1091,15 +1091,15 @@ section:nth-child(even) {
   }
 
   .video-item {
-    flex: 0 0 140px;
+    flex: 0 0 100px;
   }
 
   .video-info h4 {
-    font-size: 0.95rem;
+    font-size: 0.90rem;
   }
 
   .video-info p {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 }
 
