@@ -1049,7 +1049,7 @@ section:nth-child(even) {
   }
 
   .main-video-container {
-    width: 110%;
+    width: 100%;
   }
 
   .video-placeholder i {
@@ -1081,7 +1081,7 @@ section:nth-child(even) {
   }
 
   .main-video-container {
-    width: 110%;
+    width: 100%;
   }
 
   .video-grid {
