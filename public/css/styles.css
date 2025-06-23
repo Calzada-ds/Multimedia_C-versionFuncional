@@ -1049,29 +1049,29 @@ section:nth-child(even) {
   }
 
   .main-video-container {
-    width: 100%;
+    width: 150%;
   }
 
   .video-placeholder i {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .video-placeholder h3 {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   .video-placeholder p {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 
   .video-grid {
     flex-wrap: nowrap;
     overflow-x: auto;
-    gap: 10px;
+    gap: 8px;
   }
 
   .video-item {
-    flex: 0 0 160px;
+    flex: 0 0 100px;
   }
 }
 
@@ -1102,10 +1102,6 @@ section:nth-child(even) {
     font-size: 0.7rem;
   }
 }
-
-
-
-
 
 /* Featured Services */
 .services-grid {
