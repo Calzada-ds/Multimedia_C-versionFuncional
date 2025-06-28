@@ -1760,7 +1760,6 @@ section:nth-child(even) {
 }
 
 .download-btn {
-  background-color: #9d2449;
   color: white;
   border: none;
   padding: 0.5rem;
@@ -1843,6 +1842,10 @@ section:nth-child(even) {
   gap: 0.4rem;
   font-weight: 500;
   transition: background-color 0.3s ease;
+}
+
+.download-link i{
+  color: white;
 }
 
 .download-link:hover {
