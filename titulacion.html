@@ -289,54 +289,102 @@
             min-width: 250px;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .timeline {
-                min-width: unset;
-                flex-direction: column;
-            }
+        /* Pantallas muy pequeñas (hasta 468px) */
+@media (max-width: 468px) {
+  body {
+    padding: 8px;
+    overflow-x: hidden;
+  }
 
-            .timeline::before {
-                top: 0;
-                left: 25px;
-                height: 100%;
-                width: 4px;
-            }
+  .timeline {
+    padding-left: 12px; /* Reducido para optimizar espacio */
+  }
 
-            .timeline-step {
-                width: 100%;
-                margin-left: 50px;
-                margin-bottom: 40px;
-                text-align: left;
-            }
+  .timeline::before {
+    left: 6px; /* Ajustado para alinear con nuevos puntos */
+    width: 2px; /* Línea más delgada */
+  }
 
-            .timeline-step::before {
-                left: -28px;
-                top: 10px;
-                transform: none;
-            }
+  .timeline-step {
+    padding-left: 22px; /* Reducido para optimizar espacio */
+    margin-bottom: 25px; /* Menor separación vertical */
+  }
 
-            .character-container {
-                top: 0;
-                left: 0;
-                transition: top 1s cubic-bezier(0.22, 0.61, 0.36, 1);
-            }
+  .timeline-step::before {
+    left: 2px; /* Alineación precisa con línea vertical */
+    width: 20px; /* Puntos más pequeños */
+    height: 20px;
+    font-size: 11px; /* Texto más pequeño */
+  }
 
-            .content-section {
-                padding: 20px 15px;
-            }
+  .timeline-step h4 {
+    font-size: 13px; /* Tamaño reducido */
+  }
 
-            .controls {
-                flex-direction: column;
-                align-items: center;
-            }
+  .timeline-step p {
+    font-size: 11.5px; /* Tamaño reducido */
+    line-height: 1.4; /* Mejor espaciado */
+  }
 
-            .step-btn {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
-        }
+  .controls {
+    gap: 8px; /* Menor separación */
+    margin-top: 10px;
+  }
+
+  .step-btn {
+    min-width: 100px; /* Botones más estrechos */
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .step-indicator {
+    font-size: 13px;
+    min-width: 180px; /* Contenedor más estrecho */
+    padding: 6px;
+  }
+}
+
+/* Pantallas pequeñas (móviles, 469px a 767px) */
+@media (min-width: 469px) and (max-width: 767px) {
+  .timeline {
+    padding-left: 15px; /* Reducido para optimizar espacio */
+  }
+
+  .timeline::before {
+    left: 8px; /* Línea más cerca del borde */
+    width: 3px;
+  }
+
+  .timeline-step {
+    padding-left: 35px; /* Reducido para optimizar espacio */
+    margin-bottom: 30px; /* Menor separación vertical */
+  }
+
+  .timeline-step::before {
+    left: 8px; /* Alineación con nueva posición de línea */
+    width: 22px; /* Puntos ligeramente más pequeños */
+    height: 22px;
+    font-size: 12px; /* Texto más pequeño */
+  }
+
+  .timeline-step h4 {
+    font-size: 15px; /* Tamaño ajustado */
+  }
+
+  .timeline-step p {
+    font-size: 13px; /* Tamaño reducido */
+    line-height: 1.5; /* Mejor legibilidad */
+  }
+
+  .step-btn {
+    max-width: 240px; /* Botones más estrechos */
+    padding: 7px 14px;
+  }
+  
+  .step-indicator {
+    min-width: 180px; /* Contenedor más estrecho */
+  }
+}
     </style>
 </head>
 

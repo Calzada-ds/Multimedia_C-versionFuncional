@@ -876,14 +876,17 @@ section:nth-child(even) {
 /* Video principal */
 .main-video-container {
   position: relative;
-  width: 75%; /* más pequeño */
+  width: 75%;
+  /* más pequeño */
   aspect-ratio: 16 / 9;
   background-color: #000;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  margin: 0 auto; /* centrado horizontalmente */
+  margin: 0 auto;
+  /* centrado horizontalmente */
 }
+
 .main-video,
 .main-video video {
   position: absolute;
@@ -1039,7 +1042,8 @@ section:nth-child(even) {
   }
 
   .video-item {
-    flex: 0 0 180px; /* Más pequeñas */
+    flex: 0 0 180px;
+    /* Más pequeñas */
   }
 }
 
@@ -1459,7 +1463,7 @@ section:nth-child(even) {
   color: #ddd;
   line-height: 1.5;
   text-align: center;
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .content-section {
@@ -1701,6 +1705,42 @@ section:nth-child(even) {
   font-size: 1.25rem;
 }
 
+@media (max-width: 468px) {
+  .document-list {
+    gap: 0.75rem;
+    padding: 0 8px;
+  }
+
+  .document-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .document-item i {
+    font-size: 1.25rem;
+    margin-right: 0;
+    margin-bottom: 0.25rem;
+  }
+
+  .document-item span {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .download-link {
+    font-size: 13px;
+    gap: 0.25rem;
+  }
+
+  .download-link i {
+    font-size: 1rem;
+    margin-right: 0.25rem;
+  }
+}
+
+
 /* ======== Documentos Recientes ======== */
 .recent-documents {
   display: flex;
@@ -1847,7 +1887,7 @@ section:nth-child(even) {
   transition: background-color 0.3s ease;
 }
 
-.download-link i{
+.download-link i {
   color: white;
 }
 
@@ -2038,14 +2078,17 @@ section:nth-child(even) {
 /* Important Notice */
 .important-notice {
   display: flex;
-  flex-direction: column; /* Para alinear el contenido verticalmente */
-  width: 100%; /* Ocupa todo el ancho disponible */
+  flex-direction: column;
+  /* Para alinear el contenido verticalmente */
+  width: 100%;
+  /* Ocupa todo el ancho disponible */
   background-color: var(--red-50);
   padding: 1.5rem;
   border-radius: 0.5rem;
   border: 1px solid var(--red-100);
   margin-top: 1.5rem;
-  box-sizing: border-box; /* Asegura que el padding no sobrepase el ancho */
+  box-sizing: border-box;
+  /* Asegura que el padding no sobrepase el ancho */
 }
 
 .important-notice i {
