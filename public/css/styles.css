@@ -1706,126 +1706,83 @@ section:nth-child(even) {
   font-size: 1.25rem;
 }
 
-/* Media Queries para dispositivos pequeños */
-@media (max-width: 767px) {
-  .content-section.two-columns {
-    flex-direction: column;
-  }
-  
-  .content-section.two-columns .column {
-    width: 100%;
-    margin-bottom: 30px;
-  }
-  
-  .document-item {
-    flex-wrap: wrap;
-    padding: 12px;
-  }
-  
-  .document-item i.fas {
-    font-size: 18px;
-    margin-right: 10px;
-  }
-  
-  .document-item span {
-    flex: 1;
-    min-width: 0;
-    font-size: 14px;
-    line-height: 1.4;
-    word-wrap: break-word;
-    margin-right: 8px;
-  }
-  
-  .document-item .download-link {
-    flex-shrink: 0;
-    padding: 6px 10px;
-    font-size: 13px;
-    margin-top: 8px;
-    width: 100%;
-    justify-content: center;
-  }
-  
-  .document-item .download-link span {
-    margin-left: 5px;
-  }
-  
-  .contact-section {
-    padding: 15px;
-  }
-  
-  .contact-section h3 {
-    font-size: 18px;
-  }
-  
-  .contact-section p {
-    font-size: 14px;
-    line-height: 1.5;
-  }
-  
-  .coordinator {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .coordinator i.fas {
-    margin-right: 0;
-    margin-bottom: 8px;
-  }
-  
-  .coordinator .coordinator-title {
-    font-weight: 600;
-  }
-}
-
-/* Media Query específica para 468px - 767px */
-@media (min-width: 468px) and (max-width: 767px) {
-  .document-item {
-    flex-wrap: nowrap;
-  }
-  
-  .document-item .download-link {
-    width: auto;
-    margin-top: 0;
-  }
-  
-  .document-item span {
-    flex-basis: 60%;
-  }
-  
-  .coordinator {
-    flex-direction: row;
-    align-items: center;
-  }
-  
-  .coordinator i.fas {
-    margin-right: 12px;
-    margin-bottom: 0;
-  }
-}
-
-/* Media Query para dispositivos muy pequeños (menos de 468px) */
+/* Media Query para dispositivos muy pequeños (menos de 468px) - Versión mejorada */
 @media (max-width: 467px) {
+  .content-section.two-columns {
+    padding: 0 10px;
+  }
+  
   .document-item {
     flex-direction: column;
     align-items: flex-start;
+    padding: 10px;
+    margin-bottom: 8px;
   }
   
   .document-item i.fas {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
+    font-size: 16px;
   }
   
   .document-item span {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     width: 100%;
+    font-size: 13px;
+    line-height: 1.3;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
   
   .document-item .download-link {
     align-self: stretch;
     text-align: center;
+    padding: 5px 8px;
+    font-size: 12px;
+  }
+  
+  .document-item .download-link i.fas {
+    margin-bottom: 0;
+    font-size: 14px;
   }
   
   .contact-section {
-    padding: 12px;
+    padding: 10px;
+  }
+  
+  .contact-section h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  
+  .contact-section p {
+    font-size: 13px;
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+  
+  .coordinator {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  
+  .coordinator i.fas {
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+  
+  .coordinator .coordinator-title {
+    font-size: 14px;
+  }
+  
+  .coordinator .coordinator-info {
+    font-size: 12px;
+    word-break: break-all;
+  }
+  
+  h2 {
+    font-size: 18px;
+    margin-bottom: 12px;
   }
 }
 
