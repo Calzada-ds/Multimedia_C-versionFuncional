@@ -1,12 +1,15 @@
 <!-- modal-seguimiento.html -->
-<div class="modal-overlay" id="modalSeguimiento">
+<div class="modal-overlay" id="modalSeguimiento" style="display: none;">
   <div class="modal">
     <span class="close-btn" onclick="cerrarModalSeguimiento()">✖</span>
 
     <div class="main">
       <div class="cardTop">
-        <img src="public/img/IPN_Logo.png" alt="Descripción de la imagen" width="497" height="290" />
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M-38.5 196C-38.5 196 34 91 133.5 91C233 91 427 159 532.5 30C638 -99 518 236 518 236L-49 246.5L-38.5 196Z" fill="#FF768E"/>
+        <img src="public/img/IPN_Logo.png" alt="Logo IPN" width="497" height="290" />
+        <!-- SVG decorativo -->
+        <svg width="100%" height="100" viewBox="0 0 600 100" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#FF768E"
+            d="M-38.5 96C-38.5 96 34 -9 133.5 -9C233 -9 427 59 532.5 -70C638 -199 518 136 518 136L-49 146.5L-38.5 96Z" />
         </svg>
       </div>
 
@@ -15,6 +18,7 @@
 
         <div class="box">
           <div class="container">
+            <!-- Línea del tiempo -->
             <div class="lines">
               <div class="dot"></div>
               <div class="line"></div>
@@ -24,24 +28,12 @@
               <div class="line"></div>
             </div>
 
-            <div class="cards">
-              <div class="card">
-                <h4>16:30</h4>
-                <p>Inicio de proceso con documento: acta de inicio</p>
-              </div>
-              <div class="card mid">
-                <h4>15:22</h4>
-                <p>Subida de documento de aceptación</p>
-              </div>
-              <div class="card">
-                <h4>14:15</h4>
-                <p>Validación con empresa documento</p>
-              </div>
-            </div>
+            <!-- Aquí se insertan las tarjetas dinámicamente -->
+            <div class="cards"></div>
           </div>
 
           <div class="bottom">
-            <div class="btn">Mostrar todo el historial</div>
+            <div class="btn" onclick="cargarSeguimiento()">Mostrar todo el historial</div>
           </div>
         </div>
       </div>
