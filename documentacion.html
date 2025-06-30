@@ -9,6 +9,290 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e7f1 100%);
+      color: #333;
+      padding: 20px;
+      min-height: 100vh;
+    }
+    
+    .content-section {
+      max-width: 1400px;
+      margin: 30px auto;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .content-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #9d2449, #d4c19c, #d4c19c);
+      border-radius: 5px 5px 0 0;
+    }
+    
+    h2 {
+      text-align: center;
+      color: #9d2449;
+      margin-bottom: 30px;
+      font-size: 28px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    h2::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #9d2449, #d4c19c);
+      border-radius: 2px;
+    }
+    
+    .timeline-container {
+      overflow-x: auto;
+      padding: 60px 0 35px;
+      position: relative;
+    }
+    
+    .timeline {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 30px;
+      min-width: 1200px;
+      position: relative;
+    }
+    
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 40px;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: #d4c19c;
+      z-index: 0;
+    }
+    
+    .timeline-step {
+      position: relative;
+      z-index: 1;
+      width: 200px;
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+      border: 1px solid #eaeaea;
+    }
+    
+    .timeline-step:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+      border-color: #d4c19c;
+    }
+    
+    .timeline-step.active {
+      background: #fff9e6;
+      border: 2px solid #d4c19c;
+      box-shadow: 0 6px 15px rgba(157, 36, 73, 0.15);
+    }
+    
+    .timeline-step::before {
+      content: attr(data-step);
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 36px;
+      height: 36px;
+      background: #9d2449;
+      color: white;
+      font-weight: bold;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      z-index: 2;
+      transition: all 0.3s ease;
+    }
+    
+    .timeline-step.active::before {
+      background: rgb(157, 36, 73);
+      transform: translateX(-50%) scale(1.1);
+    }
+    
+    .timeline-step h4 {
+      margin: 10px 0 5px;
+      font-size: 16px;
+      color: #333;
+      font-weight: 600;
+    }
+    
+    .timeline-step p {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+    
+    .download-btn {
+      margin-top: 10px;
+      display: inline-block;
+      background: linear-gradient(135deg, #9d2449, #7a1c3a);
+      color: #fff;
+      padding: 8px 15px;
+      font-size: 13px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .download-btn i {
+      margin-right: 5px;
+    }
+    
+    .download-btn:hover {
+      background: linear-gradient(135deg, #7a1c3a, #5e152d);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(157, 36, 73, 0.3);
+    }
+
+    /* Animaciones */
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(-5px); }
+    }
+    
+    @keyframes swing-left {
+      from { transform: rotate(15deg); }
+      to { transform: rotate(-15deg); }
+    }
+    
+    @keyframes swing-right {
+      from { transform: rotate(-15deg); }
+      to { transform: rotate(15deg); }
+    }
+    
+    /* Controles de usuario */
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .step-btn {
+      background: linear-gradient(135deg, #9d2449, #5e152d);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(44, 94, 146, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .step-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(44, 94, 146, 0.4);
+    }
+    
+    .step-btn:active {
+      transform: translateY(1px);
+    }
+    
+    .step-btn.prev {
+      background: linear-gradient(135deg, #9d2449, #7a1c3a);
+    }
+    
+    .step-indicator {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #9d2449;
+      background: rgba(44, 94, 146, 0.1);
+      padding: 10px;
+      border-radius: 8px;
+      display: inline-block;
+      margin: 20px auto 0;
+      min-width: 250px;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .timeline {
+        min-width: unset;
+        flex-direction: column;
+      }
+      
+      .timeline::before {
+        top: 0;
+        left: 25px;
+        height: 100%;
+        width: 4px;
+      }
+      
+      .timeline-step {
+        width: 100%;
+        margin-left: 50px;
+        margin-bottom: 40px;
+        text-align: left;
+      }
+      
+      .timeline-step::before {
+        left: -28px;
+        top: 10px;
+        transform: none;
+      }
+      
+      .content-section {
+        padding: 20px 15px;
+      }
+      
+      .controls {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .step-btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -61,7 +345,6 @@
                     Volver al inicio
                 </a>
             </div>
-            <!-- Contenido y 3D -->
 
             <!-- Contenido y 3D -->
             <div class="page-content">
@@ -78,7 +361,6 @@
                 </div>
             </div>
 
-            <div class="content-section">
                 <!-- Search and Filter 
                 <div class="search-filter">
                     <div class="search-container">
@@ -167,102 +449,46 @@
             <div class="content-section">
                 <div class="section-header">
                     <h2>Documentos Recientes</h2>
-                    <a href="#" class="view-all">Ver todos</a>
                 </div>
                 <div class="recent-documents">
                     <div class="document-row">
                         <div class="document-info">
-                            <h3>Formato de registro de opción de titulación</h3>
+                            <h3>Calendario Academico 2025-Escolarizado</h3>
                             <div class="document-meta">
-                                <span class="document-category-tag">Titulación</span>
+                                <span class="document-category-tag">Calendario</span>
                                 <span class="document-date">
                                     <i class="fas fa-clock"></i>
-                                    Actualizado: 15/04/2023
+                                    Actualizado: 01/01/2025
                                 </span>
                             </div>
                         </div>
                         <div class="document-actions">
                             <span class="document-type">PDF</span>
                             <span class="document-size">245 KB</span>
-                            <button class="download-btn">
+                            <a href="pdf/calendarioipn-escolarizada.pdf" download class="download-link">
                                 <i class="fas fa-download"></i>
-                            </button>
+                                <span>Descargar</span>
+                            </a>
                         </div>
                     </div>
                     <div class="document-row">
                         <div class="document-info">
-                            <h3>Guía para elaboración de informe de servicio social</h3>
+                            <h3>Calendario Academico 2025-No Escolarizado </h3>
                             <div class="document-meta">
-                                <span class="document-category-tag">Servicio Social</span>
+                                <span class="document-category-tag">Calendario</span>
                                 <span class="document-date">
                                     <i class="fas fa-clock"></i>
-                                    Actualizado: 02/03/2023
+                                    Actualizado: 01/01/2025
                                 </span>
                             </div>
                         </div>
                         <div class="document-actions">
                             <span class="document-type">PDF</span>
                             <span class="document-size">1.2 MB</span>
-                            <button class="download-btn">
+                           <a href="pdf/calendarioipn-noescolarizado.pdf" download class="download-link">
                                 <i class="fas fa-download"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="document-row">
-                        <div class="document-info">
-                            <h3>Formato de carta de presentación para prácticas</h3>
-                            <div class="document-meta">
-                                <span class="document-category-tag">Prácticas Profesionales</span>
-                                <span class="document-date">
-                                    <i class="fas fa-clock"></i>
-                                    Actualizado: 20/02/2023
-                                </span>
-                            </div>
-                        </div>
-                        <div class="document-actions">
-                            <span class="document-type">DOCX</span>
-                            <span class="document-size">78 KB</span>
-                            <button class="download-btn">
-                                <i class="fas fa-download"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="document-row">
-                        <div class="document-info">
-                            <h3>Solicitud de constancia de estudios</h3>
-                            <div class="document-meta">
-                                <span class="document-category-tag">Trámites Escolares</span>
-                                <span class="document-date">
-                                    <i class="fas fa-clock"></i>
-                                    Actualizado: 10/01/2023
-                                </span>
-                            </div>
-                        </div>
-                        <div class="document-actions">
-                            <span class="document-type">PDF</span>
-                            <span class="document-size">125 KB</span>
-                            <button class="download-btn">
-                                <i class="fas fa-download"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="document-row">
-                        <div class="document-info">
-                            <h3>Calendario académico 2023-2024</h3>
-                            <div class="document-meta">
-                                <span class="document-category-tag">Trámites Escolares</span>
-                                <span class="document-date">
-                                    <i class="fas fa-clock"></i>
-                                    Actualizado: 05/01/2023
-                                </span>
-                            </div>
-                        </div>
-                        <div class="document-actions">
-                            <span class="document-type">PDF</span>
-                            <span class="document-size">350 KB</span>
-                            <button class="download-btn">
-                                <i class="fas fa-download"></i>
-                            </button>
+                                <span>Descargar</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -273,109 +499,102 @@
                 <div class="popular-documents">
                     <div class="document-card">
                         <div class="document-card-content">
-                            <h3>Formato de registro de titulación</h3>
-                            <p>Documento oficial para iniciar el proceso de titulación.</p>
+                            <h3>Carta de Aceptación - Ejemplo</h3>
+                            <p>Documento oficial para aceptacion de Practicas Profesionales.</p>
                             <div class="document-card-meta">
-                                <span class="document-category-tag">Titulación</span>
-                                <span class="document-downloads">1,250 descargas</span>
+                                <span class="document-category-tag">Practicas Profesionales</span>
                             </div>
                         </div>
                         <div class="document-card-footer">
                             <span class="document-format">PDF · 245 KB</span>
-                            <button class="download-link">
+                             <a href="pdf/carta-aceptacion-ejemplo.pdf" download class="download-link">
                                 <i class="fas fa-download"></i>
                                 <span>Descargar</span>
-                            </button>
+                            </a>
                         </div>
                     </div>
                     <div class="document-card">
                         <div class="document-card-content">
-                            <h3>Carta de liberación de servicio social</h3>
-                            <p>Formato para solicitar la liberación del servicio social.</p>
+                            <h3>Carta de termino - Ejemplo</h3>
+                            <p>Documento oficial para termino de Practicas Profesionales.</p>
                             <div class="document-card-meta">
-                                <span class="document-category-tag">Servicio Social</span>
-                                <span class="document-downloads">980 descargas</span>
+                                <span class="document-category-tag">Practicas Profesionales</span>
                             </div>
                         </div>
                         <div class="document-card-footer">
                             <span class="document-format">PDF · 245 KB</span>
-                            <button class="download-link">
+                          <a href="pdf/ejemplo-carta-termino.pdf" download class="download-link">
                                 <i class="fas fa-download"></i>
                                 <span>Descargar</span>
-                            </button>
+                            </a>
                         </div>
                     </div>
                     <div class="document-card">
                         <div class="document-card-content">
-                            <h3>Solicitud de constancia de estudios</h3>
-                            <p>Formato para solicitar constancias oficiales.</p>
+                            <h3>Responsiva</h3>
+                            <p>Responsiva para titulacion.</p>
                             <div class="document-card-meta">
-                                <span class="document-category-tag">Trámites Escolares</span>
-                                <span class="document-downloads">875 descargas</span>
+                                <span class="document-category-tag">Titulacion</span>
                             </div>
                         </div>
                         <div class="document-card-footer">
                             <span class="document-format">PDF · 245 KB</span>
-                            <button class="download-link">
+                           <a href="pdf/responsiva.pdf" download class="download-link">
                                 <i class="fas fa-download"></i>
                                 <span>Descargar</span>
-                            </button>
+                            </a>
                         </div>
                     </div>
                     <div class="document-card">
                         <div class="document-card-content">
-                            <h3>Guía para elaboración de tesis</h3>
-                            <p>Lineamientos oficiales para la elaboración de tesis.</p>
+                            <h3>Reportes mensuales</h3>
+                            <p>Para reportar avances del practicas profesionales.</p>
                             <div class="document-card-meta">
-                                <span class="document-category-tag">Titulación</span>
-                                <span class="document-downloads">750 descargas</span>
+                                <span class="document-category-tag">Practicas Profesionales</span>
                             </div>
                         </div>
                         <div class="document-card-footer">
                             <span class="document-format">PDF · 245 KB</span>
-                            <button class="download-link">
+                              <a href="pdf/hojas-de-asistencia.xlsx" download class="download-link">
                                 <i class="fas fa-download"></i>
                                 <span>Descargar</span>
-                            </button>
+                            </a>
                         </div>
                     </div>
                     <div class="document-card">
                         <div class="document-card-content">
-                            <h3>Formato de reporte bimestral</h3>
+                            <h3>Reportes mensuales</h3>
                             <p>Para reportar avances del servicio social.</p>
                             <div class="document-card-meta">
                                 <span class="document-category-tag">Servicio Social</span>
-                                <span class="document-downloads">720 descargas</span>
                             </div>
                         </div>
                         <div class="document-card-footer">
                             <span class="document-format">PDF · 245 KB</span>
-                            <button class="download-link">
+                              <a href="pdf/reporte-mensual.docx" download class="download-link">
                                 <i class="fas fa-download"></i>
                                 <span>Descargar</span>
-                            </button>
+                            </a>
                         </div>
                     </div>
                     <div class="document-card">
                         <div class="document-card-content">
-                            <h3>Calendario de trámites</h3>
+                            <h3>Calendario de Servicio Social</h3>
                             <p>Fechas importantes para trámites académicos.</p>
                             <div class="document-card-meta">
-                                <span class="document-category-tag">Trámites Escolares</span>
-                                <span class="document-downloads">695 descargas</span>
+                                <span class="document-category-tag">Servicio Social</span>
                             </div>
                         </div>
                         <div class="document-card-footer">
                             <span class="document-format">PDF · 245 KB</span>
-                            <button class="download-link">
+                         <a href="pdf/calendario-servicio-social.pdf" download class="download-link">
                                 <i class="fas fa-download"></i>
                                 <span>Descargar</span>
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </main>
 

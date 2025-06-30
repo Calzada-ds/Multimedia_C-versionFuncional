@@ -1420,8 +1420,8 @@ section:nth-child(even) {
   align-items: center;
   gap: 0.5rem;
   /* Espacio entre modelo 3D y texto */
-  padding: 0.8rem 1rem;
-  background-color: var(--gray-500);
+  padding: 0.1rem 6rem;
+  background-color: var(--upiicsa-green);
   border-radius: 10px;
   flex-wrap: wrap;
   /* Permite que en pantallas muy pequeñas se acomode en columna */
@@ -1448,8 +1448,9 @@ section:nth-child(even) {
 .page-header h1 {
   margin: 0 0 0.5rem 0;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
+  font-weight: 800;
   color: #fff;
+  text-align: center;
 }
 
 .page-header p {
@@ -1457,6 +1458,8 @@ section:nth-child(even) {
   font-family: 'Montserrat', sans-serif;
   color: #ddd;
   line-height: 1.5;
+  text-align: center;
+    font-size: 1.2rem;
 }
 
 .content-section {
@@ -1575,7 +1578,7 @@ section:nth-child(even) {
 }
 
 .info-card.green h3 {
-  color: var(--green-700);
+  color: var(--upiicsa-green);
 }
 
 .info-card.amber {
@@ -1584,7 +1587,7 @@ section:nth-child(even) {
 }
 
 .info-card.amber h3 {
-  color: var(--amber-700);
+  color: var(--upiicsa-green);
 }
 
 .bullet-list li {

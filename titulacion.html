@@ -9,6 +9,335 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7f1 100%);
+            color: #333;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .content-section {
+            max-width: 1400px;
+            margin: 30px auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #9d2449, #d4c19c, #d4c19c);
+            border-radius: 5px 5px 0 0;
+        }
+
+        h2 {
+            text-align: center;
+            color: #9d2449;
+            margin-bottom: 30px;
+            font-size: 28px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #9d2449, #d4c19c);
+            border-radius: 2px;
+        }
+
+        .timeline-container {
+            overflow-x: auto;
+            padding: 60px 0 35px;
+            position: relative;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 30px;
+            min-width: 1200px;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            top: 40px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #d4c19c;
+            z-index: 0;
+        }
+
+        .timeline-step {
+            position: relative;
+            z-index: 1;
+            width: 200px;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            border: 1px solid #eaeaea;
+        }
+
+        .timeline-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+            border-color: #d4c19c;
+        }
+
+        .timeline-step.active {
+            background: #fff9e6;
+            border: 2px solid #d4c19c;
+            box-shadow: 0 6px 15px rgba(157, 36, 73, 0.15);
+        }
+
+        .timeline-step::before {
+            content: attr(data-step);
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 36px;
+            height: 36px;
+            background: #9d2449;
+            color: white;
+            font-weight: bold;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-step.active::before {
+            background: rgb(157, 36, 73);
+            transform: translateX(-50%) scale(1.1);
+        }
+
+        .timeline-step h4 {
+            margin: 10px 0 5px;
+            font-size: 16px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .timeline-step p {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .download-btn {
+            margin-top: 10px;
+            display: inline-block;
+            background: linear-gradient(135deg, #9d2449, #7a1c3a);
+            color: #fff;
+            padding: 8px 15px;
+            font-size: 13px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+        }
+
+        .download-btn i {
+            margin-right: 5px;
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(135deg, #7a1c3a, #5e152d);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(157, 36, 73, 0.3);
+        }
+
+        .character-container {
+            position: absolute;
+            top: 3;
+            left: 3;
+            height: 50px;
+            width: 60px;
+            z-index: 10;
+            transition: left 0.5s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .character {
+            width: 18px;
+            height: 18px;
+            background-color: #9d2449;
+            /* color del paso activo */
+            border-radius: 50%;
+            animation: bounce 0.6s infinite alternate;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+
+        /* Animaciones */
+        @keyframes bounce {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes swing-left {
+            from {
+                transform: rotate(15deg);
+            }
+
+            to {
+                transform: rotate(-15deg);
+            }
+        }
+
+        @keyframes swing-right {
+            from {
+                transform: rotate(-15deg);
+            }
+
+            to {
+                transform: rotate(15deg);
+            }
+        }
+
+        /* Controles de usuario */
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .step-btn {
+            background: linear-gradient(135deg, #9d2449, #5e152d);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(44, 94, 146, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .step-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(44, 94, 146, 0.4);
+        }
+
+        .step-btn:active {
+            transform: translateY(1px);
+        }
+
+        .step-btn.prev {
+            background: linear-gradient(135deg, #9d2449, #7a1c3a);
+        }
+
+        .step-indicator {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #9d2449;
+            background: rgba(44, 94, 146, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            display: inline-block;
+            margin: 20px auto 0;
+            min-width: 250px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .timeline {
+                min-width: unset;
+                flex-direction: column;
+            }
+
+            .timeline::before {
+                top: 0;
+                left: 25px;
+                height: 100%;
+                width: 4px;
+            }
+
+            .timeline-step {
+                width: 100%;
+                margin-left: 50px;
+                margin-bottom: 40px;
+                text-align: left;
+            }
+
+            .timeline-step::before {
+                left: -28px;
+                top: 10px;
+                transform: none;
+            }
+
+            .character-container {
+                top: 0;
+                left: 0;
+                transition: top 1s cubic-bezier(0.22, 0.61, 0.36, 1);
+            }
+
+            .content-section {
+                padding: 20px 15px;
+            }
+
+            .controls {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .step-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -119,68 +448,158 @@
             </div>
 
             <div class="content-section">
-                <h2>Procedimiento de Titulación</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-number">1</div>
-                        <div class="timeline-content">
-                            <h3>Selección de modalidad</h3>
-                            <p>Elige la modalidad de titulación que mejor se adapte a tu perfil académico y
-                                profesional.</p>
+                <h2>Proceso paso a paso para Titulación</h2>
+
+                <div class="timeline-container">
+                    <div class="character-container" id="character">
+                        <div class="character">
                         </div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-number">2</div>
-                        <div class="timeline-content">
-                            <h3>Registro de opción</h3>
-                            <p>Acude a la Coordinación de Titulación para registrar tu opción seleccionada.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-number">3</div>
-                        <div class="timeline-content">
-                            <h3>Desarrollo del trabajo</h3>
-                            <p>Según la modalidad elegida, desarrolla tu proyecto, tesis o prepárate para el examen.
+
+                    <div class="timeline">
+                        <div class="timeline-step" data-step="1" id="step-1">
+                            <h4>Seleccion de modalidad</h4>
+                            <p>Elige la modalidad de titulacion que mejor se adpate a tu perdil academico y profesional.
                             </p>
                         </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-number">4</div>
-                        <div class="timeline-content">
-                            <h3>Revisión y aprobación</h3>
-                            <p>Presenta tu trabajo para revisión y obtén la aprobación de tu asesor y sinodales.</p>
+
+                        <div class="timeline-step" data-step="2" id="step-2">
+                            <h4>Registro de Opción</h4>
+                            <p>Acude a la Coordinación de Titulación para registrar tu opción seleccionada.</p>
                         </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-number">5</div>
-                        <div class="timeline-content">
-                            <h3>Trámite administrativo</h3>
-                            <p>Entrega la documentación requerida y realiza el pago de derechos correspondiente.</p>
+
+                        <div class="timeline-step" data-step="3" id="step-3">
+                            <h4>Desarrollo del Trabajo</h4>
+                            <p>Segun la modalidad elegida, desarrolla tu proyecto, tesis o preparate para tu examen.</p>
+
                         </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-number">6</div>
-                        <div class="timeline-content">
-                            <h3>Examen profesional</h3>
+
+                        <div class="timeline-step" data-step="4" id="step-4">
+                            <h4>Revisión y Aprovación</h4>
+                            <p>Presenta tu trabajo para revisión y obten la aprobación de tu asesor o sinodales.</p>
+
+                        </div>
+
+                        <div class="timeline-step" data-step="5" id="step-5">
+                            <h4>Tramite Admnistrativo</h4>
+                            <p>Entrega la documentación requerida y realiza el pago de derechos correspondientes.</p>
+                        </div>
+
+                        <div class="timeline-step" data-step="6" id="step-6">
+                            <h4>Examen Profesional</h4>
                             <p>Presenta tu examen profesional ante el jurado asignado.</p>
                         </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-number">7</div>
-                        <div class="timeline-content">
-                            <h3>Obtención del título</h3>
-                            <p>Una vez aprobado el examen, inicia el trámite para la obtención de tu título y cédula
-                                profesional.</p>
+
+                        <div class="timeline-step" data-step="7" id="step-7">
+                            <h4>Obtencion del Titulo</h4>
+                            <p>Una vez aprobado el examen, inicia el tramite para la obtención de tu tiutlo y cédula.
+                            </p>
                         </div>
+
                     </div>
+                </div>
+
+                <div class="step-indicator">
+                    Paso actual: <span id="current-step">1</span> de 7
+                </div>
+
+                <div class="controls">
+                    <button class="step-btn prev" id="prev-btn">
+                        <i class="fas fa-arrow-left"></i> Paso anterior
+                    </button>
+                    <button class="step-btn next" id="next-btn">
+                        Siguiente paso <i class="fas fa-arrow-right"></i>
+                    </button>
                 </div>
             </div>
 
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const character = document.getElementById('character');
+                    const steps = document.querySelectorAll('.timeline-step');
+                    const currentStepEl = document.getElementById('current-step');
+                    const prevBtn = document.getElementById('prev-btn');
+                    const nextBtn = document.getElementById('next-btn');
+
+                    let currentStep = 1;
+                    const totalSteps = steps.length;
+
+                    // Función para actualizar la posición del personaje y resaltar el paso actual
+                    function updateCharacterPosition() {
+                        // Remover clase 'active' de todos los pasos
+                        steps.forEach(step => step.classList.remove('active'));
+
+                        // Obtener el paso actual
+                        const activeStep = document.getElementById(`step-${currentStep}`);
+
+                        // Agregar clase 'active' al paso actual
+                        if (activeStep) {
+                            activeStep.classList.add('active');
+
+                            // Calcular posición del personaje
+                            const stepRect = activeStep.getBoundingClientRect();
+                            const containerRect = document.querySelector('.timeline-container').getBoundingClientRect();
+
+                            if (window.innerWidth >= 768) {
+                                // Modo escritorio - posición horizontal
+                                const stepCenter = stepRect.left - containerRect.left + (stepRect.width / 2);
+                                character.style.left = (stepCenter - 30) + 'px';
+                            } else {
+                                // Modo móvil - posición vertical
+                                const stepTop = stepRect.top - containerRect.top;
+                                character.style.top = (stepTop - 55) + 'px';
+                                character.style.left = '15px';
+                            }
+                        }
+
+                        // Actualizar indicador
+                        currentStepEl.textContent = currentStep;
+                    }
+
+                    // Función para avanzar al siguiente paso
+                    function nextStep() {
+                        if (currentStep < totalSteps) {
+                            currentStep++;
+                            updateCharacterPosition();
+                        }
+                    }
+
+                    // Función para retroceder al paso anterior
+                    function prevStep() {
+                        if (currentStep > 1) {
+                            currentStep--;
+                            updateCharacterPosition();
+                        }
+                    }
+
+                    // Event listeners para los botones
+                    nextBtn.addEventListener('click', nextStep);
+                    prevBtn.addEventListener('click', prevStep);
+
+                    // Event listeners para los pasos (permite hacer clic para ir directamente)
+                    steps.forEach((step, index) => {
+                        step.addEventListener('click', () => {
+                            currentStep = index + 1;
+                            updateCharacterPosition();
+                        });
+                    });
+
+                    // Inicializar posición
+                    updateCharacterPosition();
+
+                    // Actualizar posición al cambiar el tamaño de la ventana
+                    window.addEventListener('resize', updateCharacterPosition);
+                });
+            </script>
+
             <div class="iframe-container">
+                <h2 style="text-align:center;">Edificio de Pesados</h2>
+                <p>En este edificio podras encontrar las oficinas principales para tu de titulación, recuerda que cada
+                    metodo es diferente, sigue el recorrido
+                    cambiando las imagenes</p><br>
                 <iframe width="100%" height="640" frameborder="0" allow="xr-spatial-tracking; gyroscope; accelerometer"
                     allowfullscreen scrolling="no"
-                    src="https://kuula.co/share/collection/71VN5?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1">
-                </iframe>
+                    src="https://kuula.co/share/collection/71VN5?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1"></iframe>
             </div>
 
             <div class="content-section two-columns">
@@ -189,52 +608,50 @@
                     <div class="document-list">
                         <div class="document-item">
                             <i class="fas fa-file-alt"></i>
-                            <span>Formato de registro de opción de titulación</span>
-                            <a href="#" class="download-link">
+                            <span>Carta responsiva</span>
+                            <a href="pdf/responsiva.pdf" download class="download-link">
                                 <i class="fas fa-download"></i>
                                 <span>Descargar</span>
                             </a>
                         </div>
-                        <div class="document-item">
+
+                     <div class="document-item">
                             <i class="fas fa-file-alt"></i>
-                            <span>Guía para elaboración de tesis</span>
-                            <a href="#" class="download-link">
+                            <span>Cartas de autorización y prohibición de uso de obra</span>
+                            <a href="pdf/carta-aut-pro.pdf" download class="download-link">
                                 <i class="fas fa-download"></i>
                                 <span>Descargar</span>
                             </a>
                         </div>
-                        <div class="document-item">
+
+                       <div class="document-item">
                             <i class="fas fa-file-alt"></i>
-                            <span>Formato de revisión de trabajo</span>
-                            <a href="#" class="download-link">
+                            <span>Indicaciones fotográficas</span>
+                            <a href="pdf/indicaciones-foto.pdf" download class="download-link">
                                 <i class="fas fa-download"></i>
                                 <span>Descargar</span>
                             </a>
                         </div>
-                        <div class="document-item">
+
+                     <div class="document-item">
                             <i class="fas fa-file-alt"></i>
-                            <span>Solicitud de examen profesional</span>
-                            <a href="#" class="download-link">
+                            <span>Reglamento de titulación profesional del IPN</span>
+                            <a href="pdf/reglamento-titulacion.pdf" download class="download-link">
                                 <i class="fas fa-download"></i>
                                 <span>Descargar</span>
                             </a>
                         </div>
-                        <div class="document-item">
+
+
+                  <div class="document-item">
                             <i class="fas fa-file-alt"></i>
-                            <span>Formato de no adeudo</span>
-                            <a href="#" class="download-link">
+                            <span>Requisitos trámite-carta de no inconveniencia</span>
+                            <a href="pdf/carta-inconveniente.pdf" download class="download-link">
                                 <i class="fas fa-download"></i>
                                 <span>Descargar</span>
                             </a>
                         </div>
-                        <div class="document-item">
-                            <i class="fas fa-file-alt"></i>
-                            <span>Guía para presentación de examen</span>
-                            <a href="#" class="download-link">
-                                <i class="fas fa-download"></i>
-                                <span>Descargar</span>
-                            </a>
-                        </div>
+
                     </div>
                 </div>
 

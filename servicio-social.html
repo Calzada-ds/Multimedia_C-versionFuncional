@@ -9,84 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-
-<body>
-
-<!-- Header -->
-<header class="header">
-    <!-- Fila de logos -->
-    <div class="logos-row">
-        <img src="public/img/U_Logo.png" alt="Logo UPIICSA" class="logo logo-side">
-         <model-viewer src="FBX_F/Dragon Scholar Emblem 0521170525 texture.gltf" alt="Dragon" auto-rotate>
-                </model-viewer>
-        <img src="public/img/IPN_Logo.png" alt="Logo IPN" class="logo logo-side">
-    </div>
-
-    <!-- Fila de título -->
-    <div class="container title-row">
-        <h1 class="site-title">Portal Integral de Prácticas y Servicio Social de UPIICSA</h1>
-    </div>
-
-    <!-- Fila de navegación -->
-    <div class="container nav-row">
-        <!-- Checkbox oculto para controlar el menú móvil -->
-        <input type="checkbox" id="menu-toggle" class="menu-toggle" />
-
-        <!-- Label que funciona como botón hamburguesa -->
-        <label for="menu-toggle" class="mobile-menu-btn">
-            <i class="fas fa-bars"></i>
-        </label>
-
-        <!-- Menú principal -->
-        <nav class="main-nav">
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="titulacion.html">Titulación</a></li>
-                <li><a href="servicio-social.html">Servicio Social</a></li>
-                <li><a href="practicas.html">Prácticas Profesionales</a></li>
-                <li><a href="documentacion.html">Documentación</a></li>
-                <li><a href="MapaSitio.html">Mapa de Sitio</a></li>
-
-            </ul>
-        </nav>
-    </div>
-</header>
-
-
-
-    <main>
-        <div class="container">
-            <div class="back-link">
-                <a href="index.html">
-                    <i class="fas fa-arrow-left"></i>
-                    Volver al inicio
-                </a>
-            </div>
-
-            <!-- Contenido y 3D -->
-            <div class="page-content">
-                <div class="page-header">
-                    <model-viewer src="FBX_F/Mochila_3D.glb" alt="Dragon" auto-rotate
-                        >
-                    </model-viewer>
-
-                    <div class="text-container">
-                        <h1>Servicio Social</h1>
-                        <p>Información completa sobre el proceso de servicio social, requisitos, instituciones
-                            participantes y documentación necesaria.</p>
-                    </div>
-                </div>
-            </div>
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Proceso de Servicio Social con Animación</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
+    <style>
     * {
       margin: 0;
       padding: 0;
@@ -260,88 +183,28 @@
       box-shadow: 0 4px 8px rgba(157, 36, 73, 0.3);
     }
     
-    /* Personaje animado */
     .character-container {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 80px;
-      width: 60px;
-      z-index: 10;
-      transition: left 1s cubic-bezier(0.22, 0.61, 0.36, 1);
-    }
-    
-    .character {
-      position: absolute;
-      top: 10px;
-      width: 50px;
-      height: 70px;
-      background: #9d2449;
-      border-radius: 50% 50% 40% 40%;
-      animation: bounce 0.8s infinite alternate;
-    }
-    
-    .character::before {
-      content: "";
-      position: absolute;
-      top: 8px;
-      left: 15px;
-      width: 20px;
-      height: 20px;
-      background: white;
-      border-radius: 50%;
-    }
-    
-    .character::after {
-      content: "";
-      position: absolute;
-      top: 10px;
-      left: 20px;
-      width: 10px;
-      height: 10px;
-      background: #333;
-      border-radius: 50%;
-    }
-    
-    .character .arm {
-      position: absolute;
-      width: 8px;
-      height: 30px;
-      background: #9d2449;
-      top: 25px;
-    }
-    
-    .character .arm.left {
-      left: -5px;
-      transform-origin: top center;
-      animation: swing-left 0.8s infinite alternate;
-    }
-    
-    .character .arm.right {
-      right: -5px;
-      transform-origin: top center;
-      animation: swing-right 0.8s infinite alternate;
-    }
-    
-    .character .leg {
-      position: absolute;
-      width: 8px;
-      height: 35px;
-      background: #9d2449;
-      bottom: -35px;
-    }
-    
-    .character .leg.left {
-      left: 12px;
-      transform-origin: top center;
-      animation: swing-left 0.8s infinite alternate-reverse;
-    }
-    
-    .character .leg.right {
-      right: 12px;
-      transform-origin: top center;
-      animation: swing-right 0.8s infinite alternate-reverse;
-    }
+            position: absolute;
+            top: 3;
+            left: 3;
+            height: 50px;
+            width: 60px;
+            z-index: 10;
+            transition: left 0.5s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .character {
+            width: 18px;
+            height: 18px;
+            background-color: #9d2449;
+            /* color del paso activo */
+            border-radius: 50%;
+            animation: bounce 0.6s infinite alternate;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
     
     /* Animaciones */
     @keyframes bounce {
@@ -460,17 +323,121 @@
     }
   </style>
 </head>
+
 <body>
+<!-- Header -->
+<header class="header">
+    <!-- Fila de logos -->
+    <div class="logos-row">
+        <img src="public/img/U_Logo.png" alt="Logo UPIICSA" class="logo logo-side">
+         <model-viewer src="FBX_F/Dragon Scholar Emblem 0521170525 texture.gltf" alt="Dragon" auto-rotate>
+                </model-viewer>
+        <img src="public/img/IPN_Logo.png" alt="Logo IPN" class="logo logo-side">
+    </div>
+
+    <!-- Fila de título -->
+    <div class="container title-row">
+        <h1 class="site-title">Portal Integral de Prácticas y Servicio Social de UPIICSA</h1>
+    </div>
+
+    <!-- Fila de navegación -->
+    <div class="container nav-row">
+        <!-- Checkbox oculto para controlar el menú móvil -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+
+        <!-- Label que funciona como botón hamburguesa -->
+        <label for="menu-toggle" class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </label>
+
+        <!-- Menú principal -->
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="titulacion.html">Titulación</a></li>
+                <li><a href="servicio-social.html">Servicio Social</a></li>
+                <li><a href="practicas.html">Prácticas Profesionales</a></li>
+                <li><a href="documentacion.html">Documentación</a></li>
+                <li><a href="MapaSitio.html">Mapa de Sitio</a></li>
+
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        <div class="container">
+            <div class="back-link">
+                <a href="index.html">
+                    <i class="fas fa-arrow-left"></i>
+                    Volver al inicio
+                </a>
+            </div>
+
+            <!-- Contenido y 3D -->
+            <div class="page-content">
+                <div class="page-header">
+                    <model-viewer src="FBX_F/Mochila_3D.glb" alt="Dragon" auto-rotate
+                        >
+                    </model-viewer>
+
+                    <div class="text-container">
+                        <h1>Servicio Social</h1>
+                        <p>Información completa sobre el proceso de servicio social, requisitos, instituciones
+                            participantes y documentación necesaria.</p>
+                    </div>
+                </div>
+            </div>
+  
+</head>
+<body>
+
+   <div class="content-section">
+                <div class="info-cards">
+                    <div class="info-card green">
+                        <h3>Información General</h3>
+                        <ul class="bullet-list">
+                            <li>Duración: 480 horas (6 meses mínimo)</li>
+                            <li>Requisito: 70% de créditos aprobados</li>
+                            <li>Obligatorio para titulación</li>
+                            <li>Periodos de registro: Enero y Agosto</li>
+                            <li>Reportes bimestrales obligatorios</li>
+                            <li>Informe final al concluir</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card blue">
+                        <h3>Tipos de Programas</h3>
+                        <ul class="bullet-list">
+                            <li>Programas internos del IPN</li>
+                            <li>Dependencias gubernamentales</li>
+                            <li>Organizaciones sin fines de lucro</li>
+                            <li>Empresas con convenio IPN</li>
+                            <li>Proyectos de investigación</li>
+                            <li>Programas comunitarios</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card amber">
+                        <h3>Beneficios</h3>
+                        <ul class="bullet-list">
+                            <li>Experiencia profesional</li>
+                            <li>Aplicación de conocimientos</li>
+                            <li>Desarrollo de habilidades</li>
+                            <li>Contactos profesionales</li>
+                            <li>Posibilidad de contratación</li>
+                            <li>Apoyo económico (en algunos casos)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
   <div class="content-section">
-    <h2>Proceso del Servicio Social</h2>
+    <h2>Proceso paso a paso del Servicio Social</h2>
     
     <div class="timeline-container">
       <div class="character-container" id="character">
         <div class="character">
-          <div class="arm left"></div>
-          <div class="arm right"></div>
-          <div class="leg left"></div>
-          <div class="leg right"></div>
         </div>
       </div>
       
@@ -488,17 +455,14 @@
         <div class="timeline-step" data-step="3" id="step-3">
           <h4>Registro en SISS</h4>
           <p>Subir solicitud al sistema institucional.</p>
-          <a href="public/docs/formato_siss.pdf" class="download-btn" download>
-            <i class="fas fa-download"></i> Formato SISS
+          <a href="https://serviciosocial.ipn.mx/" class="download-btn" download>
+            <i class="fas fa-globe"></i> Pagina SISS
           </a>
         </div>
         
         <div class="timeline-step" data-step="4" id="step-4">
           <h4>Carta de presentación</h4>
           <p>Imprimir y entregar a la institución receptora.</p>
-          <a href="public/docs/carta_presentacion.pdf" class="download-btn" download>
-            <i class="fas fa-download"></i> Carta de presentación
-          </a>
         </div>
         
         <div class="timeline-step" data-step="5" id="step-5">
@@ -512,34 +476,31 @@
         </div>
         
         <div class="timeline-step" data-step="7" id="step-7">
-          <h4>Reportes bimestrales</h4>
-          <p>Entregarlos cada 2 meses con firma.</p>
-          <a href="public/docs/reporte_bimestral.pdf" class="download-btn" download>
-            <i class="fas fa-download"></i> Reporte bimestral
+          <h4>Reportes mensuales</h4>
+          <p>Entregarlos cada mes con firma.</p>
+          <a href="pdf/reporte-mensual.docx" class="download-btn" download>
+            <i class="fas fa-download"></i> Reporte mensual
           </a>
         </div>
         
         <div class="timeline-step" data-step="8" id="step-8">
-          <h4>Informe final</h4>
+          <h4>Informe global</h4>
           <p>Entregar el informe al finalizar el servicio.</p>
-          <a href="public/docs/guia_informe_final.pdf" class="download-btn" download>
-            <i class="fas fa-download"></i> Guía informe final
+          <a href="pdf/reporte-global.docx" class="download-btn" download>
+            <i class="fas fa-download"></i> Guía informe global
           </a>
         </div>
         
         <div class="timeline-step" data-step="9" id="step-9">
           <h4>Carta de terminación</h4>
           <p>Solicitarla en la institución receptora.</p>
-          <a href="public/docs/carta_terminacion.pdf" class="download-btn" download>
-            <i class="fas fa-download"></i> Carta de terminación
-          </a>
         </div>
         
         <div class="timeline-step" data-step="10" id="step-10">
           <h4>Constancia de liberación</h4>
           <p>Entregar todo para liberar oficialmente.</p>
-          <a href="public/docs/lineamientos_servicio_social.pdf" class="download-btn" download>
-            <i class="fas fa-download"></i> Lineamientos y calendario
+          <a href="pdf/documento-termino.pdf" class="download-btn" download>
+            <i class="fas fa-download"></i> Documentos finales
           </a>
         </div>
       </div>
@@ -670,7 +631,7 @@
 
                 <div class="iframe-container">
                       <h2 style="text-align:center;">Edificio de Gobierno</h2>
-                        <p>En este edificio podras encontrar las oficnas principales para tus tramites de servicio social</p><br>
+                        <p>En este edificio podras encontrar las oficinas principales para tus tramites de servicio social, sigue el recorrido cambiando las imagenes</p><br>
                 <iframe width="100%" height="640" frameborder="0" allow="xr-spatial-tracking; gyroscope; accelerometer"
                     allowfullscreen scrolling="no"
                     src="https://kuula.co/share/collection/71V4T?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1"></iframe>
@@ -681,48 +642,53 @@
                     <div class="document-list">
                         <div class="document-item">
                             <i class="fas fa-file-alt"></i>
-                            <span>Formato de registro SISS</span>
-                            <a href="#" class="download-link">
+                            <span>Calendario Servicio Social 2025</span>
+                            <a href="pdf/calendario-servicio-social.pdf" download class="download-link">
                                 <i class="fas fa-download"></i>
                                 <span>Descargar</span>
                             </a>
                         </div>
+
                         <div class="document-item">
                             <i class="fas fa-file-alt"></i>
-                            <span>Formato de reporte bimestral</span>
-                            <a href="#" class="download-link">
+                            <span>Reporte Mensual</span>
+                            <a href="pdf/reporte-mensual.docx" download class="download-link">
                                 <i class="fas fa-download"></i>
                                 <span>Descargar</span>
                             </a>
                         </div>
+
                         <div class="document-item">
                             <i class="fas fa-file-alt"></i>
-                            <span>Guía para elaboración de informe final</span>
-                            <a href="#" class="download-link">
+                            <span>Reporte Global</span>
+                            <a href="pdf/reporte-global.docx" download class="download-link">
                                 <i class="fas fa-download"></i>
                                 <span>Descargar</span>
                             </a>
                         </div>
-                        <div class="document-item">
+
+                       <div class="document-item">
                             <i class="fas fa-file-alt"></i>
-                            <span>Formato de carta de terminación</span>
-                            <a href="#" class="download-link">
+                            <span>Evaluación</span>
+                            <a href="pdf/evaluacion.pdf" download class="download-link">
                                 <i class="fas fa-download"></i>
                                 <span>Descargar</span>
                             </a>
                         </div>
+
                         <div class="document-item">
                             <i class="fas fa-file-alt"></i>
-                            <span>Lineamientos de servicio social IPN</span>
-                            <a href="#" class="download-link">
+                            <span>Control de asistencia</span>
+                            <a href="pdf/control-asistencia.pdf" download class="download-link">
                                 <i class="fas fa-download"></i>
                                 <span>Descargar</span>
                             </a>
                         </div>
+
                         <div class="document-item">
                             <i class="fas fa-file-alt"></i>
-                            <span>Calendario de trámites</span>
-                            <a href="#" class="download-link">
+                            <span>Documentos de terminación</span>
+                            <a href="pdf/documento-termino.pdf" download class="download-link">
                                 <i class="fas fa-download"></i>
                                 <span>Descargar</span>
                             </a>
