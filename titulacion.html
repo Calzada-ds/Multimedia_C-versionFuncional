@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal Integral de Prácticas y Servicio Social de UPIICSA</title>
+
+  <link rel="stylesheet" href="public/css/styles.css" />
+  <link rel="stylesheet" href="public/css/styles_php.css" />
+  <link rel="stylesheet" href="public/css/styles_modalProcessMont.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <!-- Fila de logos -->
+    <div class="logos-row">
+      <img src="public/img/U_Logo.png" alt="Logo UPIICSA" class="logo logo-side" />
+      <model-viewer src="FBX_F/Dragon Scholar Emblem 0521170525 texture.gltf" alt="Dragon" auto-rotate></model-viewer>
+      <img src="public/img/IPN_Logo.png" alt="Logo IPN" class="logo logo-side" />
+    </div>
+
+    <!-- Fila de título -->
+    <div class="container title-row">
+      <h1 class="site-title">Portal Integral de Prácticas y Servicio Social de UPIICSA</h1>
+    </div>
+
+    <!-- Fila de navegación -->
+    <div class="container nav-row">
+      <!-- Checkbox oculto para controlar el menú móvil -->
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+
+      <!-- Label que funciona como botón hamburguesa -->
+      <label for="menu-toggle" class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </label>
+
+      <!-- Menú principal -->
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="titulacion.html">Titulación</a></li>
+          <li><a href="servicio-social.html">Servicio Social</a></li>
+          <li><a href="practicas.html">Prácticas Profesionales</a></li>
+          <li><a href="documentacion.html">Documentación</a></li>
+          <li><a href="MapaSitio.html">Mapa de Sitio</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="back-link">
+        <a href="index.html">
+          <i class="fas fa-arrow-left"></i> Volver al inicio
+        </a>
+      </div>
+
+      <div class="page-content">
+        <div class="page-header">
+          <model-viewer src="FBX_F/gorro 3D.glb" alt="Dragon" auto-rotate></model-viewer>
+
+          <div class="text-container">
+            <h1>Proceso de Titulación</h1>
+            <p>
+              Información completa sobre las diferentes modalidades de titulación, requisitos y procedimientos para
+              obtener tu título profesional.
+            </p>
+          </div>
+
+          <div>
+            <!-- Botón INICIAR TRÁMITE -->
+            <button class="btn pulse-effect" onclick="document.getElementById('miModal').style.display='flex'"
+                    id="btnIniciar" style="display: none;"> Quiero iniciar mi proceso </button>
+            <!-- Botón CONSULTAR TRÁMITE -->
+            <button class="btn pulse-effect" onclick="abrirModalSeguimiento()"
+                    id="btnConsultar" style="display: none;"> Consultar mi proceso </button>
+    <!--*****************************************************INICIO MODAL INICIAR PROCESO******************************************************-->
+                <div id="contenedor-modal"></div>
+    <!--*****************************************************FIN MODAL INICIAR PROCESO******************************************************-->
+    <!--*****************************************************INICIO MODAL SEGUIMIENTO******************************************************-->
+                <div id="contenedor-modal-seguimiento"></div>
+    <!--*****************************************************FIN MODAL SEGUIMIENTO******************************************************-->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <div class="info-cards">
+          <div class="info-card blue">
+            <h3>Modalidades de Titulación</h3>
+            <ul class="bullet-list">
+              <li>Tesis o tesina</li>
+              <li>Proyecto de investigación</li>
+              <li>Examen de conocimientos</li>
+              <li>Escolaridad (promedio)</li>
+              <li>Estudios de posgrado</li>
+              <li>Experiencia profesional</li>
+              <li>Seminario de titulación</li>
+            </ul>
+          </div>
+
+          <div class="info-card green">
+            <h3>Requisitos Generales</h3>
+            <ul class="bullet-list">
+              <li>Certificado de estudios completo</li>
+              <li>Servicio social liberado</li>
+              <li>Constancia de no adeudo</li>
+              <li>Constancia de acreditación de idioma</li>
+              <li>Fotografías (formato específico)</li>
+              <li>Pago de derechos</li>
+              <li>CURP actualizada</li>
+            </ul>
+          </div>
+
+          <div class="info-card amber">
+            <h3>Fechas Importantes</h3>
+            <ul class="bullet-list">
+              <li>Registro de opción de titulación: Enero y Agosto</li>
+              <li>Entrega de documentación: Todo el año</li>
+              <li>Exámenes profesionales: Según programación</li>
+              <li>Ceremonia de titulación: Mayo y Noviembre</li>
+              <li>Entrega de títulos: 3-6 meses después del examen</li>
+              <li>Trámite de cédula profesional: Una vez recibido el título</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>Procedimiento de Titulación</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-number">1</div>
+            <div class="timeline-content">
+              <h3>Selección de modalidad</h3>
+              <p>Elige la modalidad de titulación que mejor se adapte a tu perfil académico y profesional.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-number">2</div>
+            <div class="timeline-content">
+              <h3>Registro de opción</h3>
+              <p>Acude a la Coordinación de Titulación para registrar tu opción seleccionada.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-number">3</div>
+            <div class="timeline-content">
+              <h3>Desarrollo del trabajo</h3>
+              <p>Según la modalidad elegida, desarrolla tu proyecto, tesis o prepárate para el examen.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-number">4</div>
+            <div class="timeline-content">
+              <h3>Revisión y aprobación</h3>
+              <p>Presenta tu trabajo para revisión y obtén la aprobación de tu asesor y sinodales.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-number">5</div>
+            <div class="timeline-content">
+              <h3>Trámite administrativo</h3>
+              <p>Entrega la documentación requerida y realiza el pago de derechos correspondiente.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-number">6</div>
+            <div class="timeline-content">
+              <h3>Examen profesional</h3>
+              <p>Presenta tu examen profesional ante el jurado asignado.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-number">7</div>
+            <div class="timeline-content">
+              <h3>Obtención del título</h3>
+              <p>
+                Una vez aprobado el examen, inicia el trámite para la obtención de tu título y cédula profesional.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="iframe-container">
+        <iframe
+          width="100%"
+          height="640"
+          frameborder="0"
+          allow="xr-spatial-tracking; gyroscope; accelerometer"
+          allowfullscreen
+          scrolling="no"
+          src="https://kuula.co/share/collection/71VN5?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1"
+        ></iframe>
+      </div>
+
+      <div class="content-section two-columns">
+        <div class="column">
+          <h2>Documentos Descargables</h2>
+          <div class="document-list">
+            <div class="document-item">
+              <i class="fas fa-file-alt"></i>
+              <span>Formato de registro de opción de titulación</span>
+              <a href="#" class="download-link">
+                <i class="fas fa-download"></i> <span>Descargar</span>
+              </a>
+            </div>
+            <div class="document-item">
+              <i class="fas fa-file-alt"></i>
+              <span>Guía para elaboración de tesis</span>
+              <a href="#" class="download-link">
+                <i class="fas fa-download"></i> <span>Descargar</span>
+              </a>
+            </div>
+            <div class="document-item">
+              <i class="fas fa-file-alt"></i>
+              <span>Formato de revisión de trabajo</span>
+              <a href="#" class="download-link">
+                <i class="fas fa-download"></i> <span>Descargar</span>
+              </a>
+            </div>
+            <div class="document-item">
+              <i class="fas fa-file-alt"></i>
+              <span>Solicitud de examen profesional</span>
+              <a href="#" class="download-link">
+                <i class="fas fa-download"></i> <span>Descargar</span>
+              </a>
+            </div>
+            <div class="document-item">
+              <i class="fas fa-file-alt"></i>
+              <span>Formato de no adeudo</span>
+              <a href="#" class="download-link">
+                <i class="fas fa-download"></i> <span>Descargar</span>
+              </a>
+            </div>
+            <div class="document-item">
+              <i class="fas fa-file-alt"></i>
+              <span>Guía para presentación de examen</span>
+              <a href="#" class="download-link">
+                <i class="fas fa-download"></i> <span>Descargar</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <h2>Información de Contacto</h2>
+          <div class="contact-info">
+            <div class="contact-section">
+              <h3>Coordinación de Titulación</h3>
+              <p>Edificio de Pesados, Planta Alta</p>
+              <p>Horario: Lunes a Viernes de 9:00 a 18:00 hrs</p>
+              <p>Teléfono: (55) 5624-2000 ext. 70250</p>
+              <p>Email: titulacion@upiicsa.ipn.mx</p>
+            </div>
+
+            <div class="contact-section">
+              <h3>Coordinadores por Carrera</h3>
+              <div class="coordinator">
+                <i class="fas fa-users"></i>
+                <div>
+                  <p class="coordinator-title">Ing. en Sistemas Computacionales</p>
+                  <p class="coordinator-info">Ing. María Rodríguez - sistemas.titulacion@upiicsa.ipn.mx</p>
+                </div>
+              </div>
+              <div class="coordinator">
+                <i class="fas fa-users"></i>
+                <div>
+                  <p class="coordinator-title">Ing. Industrial</p>
+                  <p class="coordinator-info">Ing. Carlos Méndez - industrial.titulacion@upiicsa.ipn.mx</p>
+                </div>
+              </div>
+              <div class="coordinator">
+                <i class="fas fa-users"></i>
+                <div>
+                  <p class="coordinator-title">Administración Industrial</p>
+                  <p class="coordinator-info">Lic. Ana López - administracion.titulacion@upiicsa.ipn.mx</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>UPIICSA</h3>
+          <p>Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas</p>
+          <div class="footer-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.3822354344256!2d-99.09442242565133!3d19.39588398187569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fc2e3efc321b%3A0xabf8454acb3a3a99!2sUPIICSA%20%E2%80%93%20Unidad%20Profesional%20Interdisciplinaria%20de%20Ingenier%C3%ADa%20y%20Ciencias%20Sociales%20y%20Administrativas%20IPN!5e0!3m2!1ses-419!2smx!4v1750303311647!5m2!1ses-419!2smx"
+              width="300"
+              height="200"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Enlaces</h3>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="titulacion.html">Titulación</a></li>
+            <li><a href="servicio-social.html">Servicio Social</a></li>
+            <li><a href="practicas.html">Prácticas Profesionales</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contacto</h3>
+          <ul>
+            <li>Teléfono: 55 5624 2000</li>
+            <li>Email: gustavo.mazcorro@gmail.com</li>
+            <li class="social-icons">
+              <a
+                href="https://www.facebook.com/upiicsa.ipn.oficial?mibextid=ZbWKwL"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/upiicsa_oficial?igsh=MTUyaXJpaGtiM2UwZA=="
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          © <span id="current-year"></span> UPIICSA - Instituto Politécnico Nacional. Todos los derechos
+          reservados.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+ <!--SCRIPT PARA VALIDAR SI EL USUARIO TIENE TRÁMITES ACTIVOS-->
+ <!--SCRIPT PARA VALIDAR SI EL USUARIO TIENE TRÁMITES ACTIVOS-->
+        <script>
+          const user = JSON.parse(localStorage.getItem("usuario"));
+          const studentId = user?.id;
+        
+          // Detectar tipo de trámite según la página
+          let tipo = "";
+          const ruta = window.location.pathname;
+        
+          if (ruta.includes("servicio-social.html")) {
+            tipo = "Servicio Social";
+          } else if (ruta.includes("practicas.html")) {
+            tipo = "Prácticas Profesionales";
+          } else if (ruta.includes("titulacion.html")) {
+            tipo = "Titulación";
+          }
+      
+          if (studentId && tipo) {
+            fetch(`php/includes/validarTramitesUsuario.php?student_id=${studentId}&tipo=${encodeURIComponent(tipo)}`)
+              .then(res => res.json())
+              .then(data => {
+                const btnIniciar = document.getElementById("btnIniciar");
+                const btnConsultar = document.getElementById("btnConsultar");
+            
+                if (data.success) {
+                  if (data.hasActiveProcess) {
+                    if (btnIniciar) btnIniciar.style.display = "none";
+                    if (btnConsultar) btnConsultar.style.display = "inline-block";
+                  } else {
+                    if (btnIniciar) btnIniciar.style.display = "inline-block";
+                    if (btnConsultar) btnConsultar.style.display = "none";
+                  }
+                } else {
+                  console.warn("Respuesta incorrecta:", data.message);
+                }
+              })
+              .catch(err => console.error("Error en la verificación:", err));
+          } else {
+            console.warn("Faltan datos del usuario o tipo de trámite");
+          }
+        </script>
+
+
+        <!-- Script que inserta el modal INICIAR SEGUIMIENTO -->
+        <script>
+          fetch('modals/modal_startProcess.html')
+            .then(response => response.text())
+            .then(html => {
+              document.getElementById('contenedor-modal').innerHTML = html;
+            });
+        </script>
+
+        <!-- Script que inserta el modal SEGUIMIENTO -->
+        <script>
+          fetch('modals/modal_processMonitoring.html')
+            .then(res => res.text())
+            .then(html => {
+              document.getElementById('contenedor-modal-seguimiento').innerHTML = html;
+            });
+        </script>
+        
+  <script src="js/php/phpJS.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/chat.js"></script>
+  <script
+    type="module"
+    src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"
+  ></script>
+</body>
+
+</html>

@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Integral de Prácticas y Servicio Social de UPIICSA</title>
+    <link rel="stylesheet" href="public/css/styles.css">
+    <link rel="stylesheet" href="public/css/styles_php.css">
+    <link rel="stylesheet" href="public/css/styles_modalProcessMont.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- Header -->
+<header class="header">
+    <!-- Fila de logos -->
+    <div class="logos-row">
+        <img src="public/img/U_Logo.png" alt="Logo UPIICSA" class="logo logo-side">
+         <model-viewer src="FBX_F/Dragon Scholar Emblem 0521170525 texture.gltf" alt="Dragon" auto-rotate></model-viewer>
+        <img src="public/img/IPN_Logo.png" alt="Logo IPN" class="logo logo-side">
+    </div>
+
+    <!-- Fila de título -->
+    <div class="container title-row">
+        <h1 class="site-title">Portal Integral de Prácticas y Servicio Social de UPIICSA</h1>
+    </div>
+
+    <!-- Fila de navegación -->
+    <div class="container nav-row">
+        <!-- Checkbox oculto para controlar el menú móvil -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+
+        <!-- Label que funciona como botón hamburguesa -->
+        <label for="menu-toggle" class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </label>
+
+        <!-- Menú principal -->
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="titulacion.html">Titulación</a></li>
+                <li><a href="servicio-social.html">Servicio Social</a></li>
+                <li><a href="practicas.html">Prácticas Profesionales</a></li>
+                <li><a href="documentacion.html">Documentación</a></li>
+                <li><a href="MapaSitio.html">Mapa de Sitio</a></li>
+
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+
+    <main>
+        <div class="container">
+            <div class="back-link">
+                <a href="index.html">
+                    <i class="fas fa-arrow-left"></i>
+                    Volver al inicio
+                </a>
+            </div>
+
+            <!-- Contenido y 3D -->
+            <div class="page-content">
+                <div class="page-header">
+                    <model-viewer src="FBX_F/Mochila_3D.glb" alt="Dragon" auto-rotate
+                        >
+                    </model-viewer>
+
+                    <div class="text-container">
+                        <h1>Servicio Social</h1>
+                        <p>Información completa sobre el proceso de servicio social, requisitos, instituciones
+                            participantes y documentación necesaria.</p>
+                    </div>
+                    <div>
+                      <!-- Botón INICIAR TRÁMITE -->
+                      <button class="btn pulse-effect" onclick="document.getElementById('miModal').style.display='flex'"
+                              id="btnIniciar" style="display: none;"> Quiero iniciar mi proceso </button>
+
+                      <!-- Botón CONSULTAR TRÁMITE -->
+                      <button class="btn pulse-effect" onclick="abrirModalSeguimiento()"
+                              id="btnConsultar" style="display: none;"> Consultar mi proceso </button>
+<!--*****************************************************INICIO MODAL INICIAR PROCESO******************************************************-->
+                            <div id="contenedor-modal"></div>
+<!--*****************************************************FIN MODAL INICIAR PROCESO******************************************************-->
+<!--*****************************************************INICIO MODAL SEGUIMIENTO******************************************************-->
+                            <div id="contenedor-modal-seguimiento"></div>
+<!--*****************************************************FIN MODAL SEGUIMIENTO******************************************************-->
+                    </div>
+                </div>
+            </div>
+
+            <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proceso de Servicio Social con Animación</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e7f1 100%);
+      color: #333;
+      padding: 20px;
+      min-height: 100vh;
+    }
+    
+    .content-section {
+      max-width: 1400px;
+      margin: 30px auto;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .content-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #9d2449, #d4c19c, #d4c19c);
+      border-radius: 5px 5px 0 0;
+    }
+    
+    h2 {
+      text-align: center;
+      color: #9d2449;
+      margin-bottom: 30px;
+      font-size: 28px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    h2::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #9d2449, #d4c19c);
+      border-radius: 2px;
+    }
+    
+    .timeline-container {
+      overflow-x: auto;
+      padding: 60px 0 35px;
+      position: relative;
+    }
+    
+    .timeline {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 30px;
+      min-width: 1200px;
+      position: relative;
+    }
+    
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 40px;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: #d4c19c;
+      z-index: 0;
+    }
+    
+    .timeline-step {
+      position: relative;
+      z-index: 1;
+      width: 200px;
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+      border: 1px solid #eaeaea;
+    }
+    
+    .timeline-step:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+      border-color: #d4c19c;
+    }
+    
+    .timeline-step.active {
+      background: #fff9e6;
+      border: 2px solid #d4c19c;
+      box-shadow: 0 6px 15px rgba(157, 36, 73, 0.15);
+    }
+    
+    .timeline-step::before {
+      content: attr(data-step);
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 36px;
+      height: 36px;
+      background: #9d2449;
+      color: white;
+      font-weight: bold;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      z-index: 2;
+      transition: all 0.3s ease;
+    }
+    
+    .timeline-step.active::before {
+      background: rgb(157, 36, 73);
+      transform: translateX(-50%) scale(1.1);
+    }
+    
+    .timeline-step h4 {
+      margin: 10px 0 5px;
+      font-size: 16px;
+      color: #333;
+      font-weight: 600;
+    }
+    
+    .timeline-step p {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+    
+    .download-btn {
+      margin-top: 10px;
+      display: inline-block;
+      background: linear-gradient(135deg, #9d2449, #7a1c3a);
+      color: #fff;
+      padding: 8px 15px;
+      font-size: 13px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .download-btn i {
+      margin-right: 5px;
+    }
+    
+    .download-btn:hover {
+      background: linear-gradient(135deg, #7a1c3a, #5e152d);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(157, 36, 73, 0.3);
+    }
+    
+    /* Personaje animado */
+    .character-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 80px;
+      width: 60px;
+      z-index: 10;
+      transition: left 1s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    
+    .character {
+      position: absolute;
+      top: 10px;
+      width: 50px;
+      height: 70px;
+      background: #9d2449;
+      border-radius: 50% 50% 40% 40%;
+      animation: bounce 0.8s infinite alternate;
+    }
+    
+    .character::before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      left: 15px;
+      width: 20px;
+      height: 20px;
+      background: white;
+      border-radius: 50%;
+    }
+    
+    .character::after {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      width: 10px;
+      height: 10px;
+      background: #333;
+      border-radius: 50%;
+    }
+    
+    .character .arm {
+      position: absolute;
+      width: 8px;
+      height: 30px;
+      background: #9d2449;
+      top: 25px;
+    }
+    
+    .character .arm.left {
+      left: -5px;
+      transform-origin: top center;
+      animation: swing-left 0.8s infinite alternate;
+    }
+    
+    .character .arm.right {
+      right: -5px;
+      transform-origin: top center;
+      animation: swing-right 0.8s infinite alternate;
+    }
+    
+    .character .leg {
+      position: absolute;
+      width: 8px;
+      height: 35px;
+      background: #9d2449;
+      bottom: -35px;
+    }
+    
+    .character .leg.left {
+      left: 12px;
+      transform-origin: top center;
+      animation: swing-left 0.8s infinite alternate-reverse;
+    }
+    
+    .character .leg.right {
+      right: 12px;
+      transform-origin: top center;
+      animation: swing-right 0.8s infinite alternate-reverse;
+    }
+    
+    /* Animaciones */
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(-5px); }
+    }
+    
+    @keyframes swing-left {
+      from { transform: rotate(15deg); }
+      to { transform: rotate(-15deg); }
+    }
+    
+    @keyframes swing-right {
+      from { transform: rotate(-15deg); }
+      to { transform: rotate(15deg); }
+    }
+    
+    /* Controles de usuario */
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .step-btn {
+      background: linear-gradient(135deg, #9d2449, #5e152d);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(44, 94, 146, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .step-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(44, 94, 146, 0.4);
+    }
+    
+    .step-btn:active {
+      transform: translateY(1px);
+    }
+    
+    .step-btn.prev {
+      background: linear-gradient(135deg, #9d2449, #7a1c3a);
+    }
+    
+    .step-indicator {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #9d2449;
+      background: rgba(44, 94, 146, 0.1);
+      padding: 10px;
+      border-radius: 8px;
+      display: inline-block;
+      margin: 20px auto 0;
+      min-width: 250px;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .timeline {
+        min-width: unset;
+        flex-direction: column;
+      }
+      
+      .timeline::before {
+        top: 0;
+        left: 25px;
+        height: 100%;
+        width: 4px;
+      }
+      
+      .timeline-step {
+        width: 100%;
+        margin-left: 50px;
+        margin-bottom: 40px;
+        text-align: left;
+      }
+      
+      .timeline-step::before {
+        left: -28px;
+        top: 10px;
+        transform: none;
+      }
+      
+      .character-container {
+        top: 0;
+        left: 0;
+        transition: top 1s cubic-bezier(0.22, 0.61, 0.36, 1);
+      }
+      
+      .content-section {
+        padding: 20px 15px;
+      }
+      
+      .controls {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .step-btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="content-section">
+    <h2>Proceso del Servicio Social</h2>
+    
+    <div class="timeline-container">
+      <div class="character-container" id="character">
+        <div class="character">
+          <div class="arm left"></div>
+          <div class="arm right"></div>
+          <div class="leg left"></div>
+          <div class="leg right"></div>
+        </div>
+      </div>
+      
+      <div class="timeline">
+        <div class="timeline-step" data-step="1" id="step-1">
+          <h4>Requisitos</h4>
+          <p>Contar con el 70% de créditos aprobados.</p>
+        </div>
+        
+        <div class="timeline-step" data-step="2" id="step-2">
+          <h4>Búsqueda de programa</h4>
+          <p>Elegir un programa del catálogo institucional.</p>
+        </div>
+        
+        <div class="timeline-step" data-step="3" id="step-3">
+          <h4>Registro en SISS</h4>
+          <p>Subir solicitud al sistema institucional.</p>
+          <a href="public/docs/formato_siss.pdf" class="download-btn" download>
+            <i class="fas fa-download"></i> Formato SISS
+          </a>
+        </div>
+        
+        <div class="timeline-step" data-step="4" id="step-4">
+          <h4>Carta de presentación</h4>
+          <p>Imprimir y entregar a la institución receptora.</p>
+          <a href="public/docs/carta_presentacion.pdf" class="download-btn" download>
+            <i class="fas fa-download"></i> Carta de presentación
+          </a>
+        </div>
+        
+        <div class="timeline-step" data-step="5" id="step-5">
+          <h4>Carta de aceptación</h4>
+          <p>Obtenerla firmada por la institución.</p>
+        </div>
+        
+        <div class="timeline-step" data-step="6" id="step-6">
+          <h4>Servicio activo</h4>
+          <p>Realizar 480 horas en mínimo 6 meses.</p>
+        </div>
+        
+        <div class="timeline-step" data-step="7" id="step-7">
+          <h4>Reportes bimestrales</h4>
+          <p>Entregarlos cada 2 meses con firma.</p>
+          <a href="public/docs/reporte_bimestral.pdf" class="download-btn" download>
+            <i class="fas fa-download"></i> Reporte bimestral
+          </a>
+        </div>
+        
+        <div class="timeline-step" data-step="8" id="step-8">
+          <h4>Informe final</h4>
+          <p>Entregar el informe al finalizar el servicio.</p>
+          <a href="public/docs/guia_informe_final.pdf" class="download-btn" download>
+            <i class="fas fa-download"></i> Guía informe final
+          </a>
+        </div>
+        
+        <div class="timeline-step" data-step="9" id="step-9">
+          <h4>Carta de terminación</h4>
+          <p>Solicitarla en la institución receptora.</p>
+          <a href="public/docs/carta_terminacion.pdf" class="download-btn" download>
+            <i class="fas fa-download"></i> Carta de terminación
+          </a>
+        </div>
+        
+        <div class="timeline-step" data-step="10" id="step-10">
+          <h4>Constancia de liberación</h4>
+          <p>Entregar todo para liberar oficialmente.</p>
+          <a href="public/docs/lineamientos_servicio_social.pdf" class="download-btn" download>
+            <i class="fas fa-download"></i> Lineamientos y calendario
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="step-indicator">
+      Paso actual: <span id="current-step">1</span> de 10
+    </div>
+    
+    <div class="controls">
+      <button class="step-btn prev" id="prev-btn">
+        <i class="fas fa-arrow-left"></i> Paso anterior
+      </button>
+      <button class="step-btn next" id="next-btn">
+        Siguiente paso <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const character = document.getElementById('character');
+      const steps = document.querySelectorAll('.timeline-step');
+      const currentStepEl = document.getElementById('current-step');
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+      
+      let currentStep = 1;
+      const totalSteps = steps.length;
+      
+      // Función para actualizar la posición del personaje y resaltar el paso actual
+      function updateCharacterPosition() {
+        // Remover clase 'active' de todos los pasos
+        steps.forEach(step => step.classList.remove('active'));
+        
+        // Obtener el paso actual
+        const activeStep = document.getElementById(`step-${currentStep}`);
+        
+        // Agregar clase 'active' al paso actual
+        if (activeStep) {
+          activeStep.classList.add('active');
+          
+          // Calcular posición del personaje
+          const stepRect = activeStep.getBoundingClientRect();
+          const containerRect = document.querySelector('.timeline-container').getBoundingClientRect();
+          
+          if (window.innerWidth >= 768) {
+            // Modo escritorio - posición horizontal
+            const stepCenter = stepRect.left - containerRect.left + (stepRect.width / 2);
+            character.style.left = (stepCenter - 30) + 'px';
+          } else {
+            // Modo móvil - posición vertical
+            const stepTop = stepRect.top - containerRect.top;
+            character.style.top = (stepTop - 55) + 'px';
+            character.style.left = '15px';
+          }
+        }
+        
+        // Actualizar indicador
+        currentStepEl.textContent = currentStep;
+      }
+      
+      // Función para avanzar al siguiente paso
+      function nextStep() {
+        if (currentStep < totalSteps) {
+          currentStep++;
+          updateCharacterPosition();
+        }
+      }
+      
+      // Función para retroceder al paso anterior
+      function prevStep() {
+        if (currentStep > 1) {
+          currentStep--;
+          updateCharacterPosition();
+        }
+      }
+      
+      // Event listeners para los botones
+      nextBtn.addEventListener('click', nextStep);
+      prevBtn.addEventListener('click', prevStep);
+      
+      // Event listeners para los pasos (permite hacer clic para ir directamente)
+      steps.forEach((step, index) => {
+        step.addEventListener('click', () => {
+          currentStep = index + 1;
+          updateCharacterPosition();
+        });
+      });
+      
+      // Inicializar posición
+      updateCharacterPosition();
+      
+      // Actualizar posición al cambiar el tamaño de la ventana
+      window.addEventListener('resize', updateCharacterPosition);
+    });
+  </script>
+</body>
+</html>
+
+            <div class="content-section two-columns">
+                <div class="column">
+                    <h2>Instituciones Destacadas</h2>
+                    <div class="institutions-list">
+                        <div class="institution-item">
+                            <img src="public/img/UPIICSA_1.jpg" alt="IPN - UPIICSA" class="institution-logo">
+                            <div>
+                                <h3>IPN - UPIICSA</h3>
+                                <p>Apoyo a laboratorios, centros de investigación y áreas administrativas.</p>
+                            </div>
+                        </div>
+                        <div class="institution-item">
+                            <img src="public/img/SAT_1.png" alt="SAT" class="institution-logo">
+                            <div>
+                                <h3>SAT</h3>
+                                <p>Apoyo en áreas de administración tributaria y atención al contribuyente.</p>
+                            </div>
+                        </div>
+                        <div class="institution-item">
+                            <img src="public/img/CFE_1.webp" alt="CFE" class="institution-logo">
+                            <div>
+                                <h3>CFE</h3>
+                                <p>Proyectos de ingeniería eléctrica, sistemas y administración.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="view-all-link">Ver todas las instituciones</a>
+                </div>
+
+                <div class="iframe-container">
+                <iframe width="100%" height="640" frameborder="0" allow="xr-spatial-tracking; gyroscope; accelerometer"
+                    allowfullscreen scrolling="no"
+                    src="https://kuula.co/share/collection/71V4T?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1"></iframe>
+            </div>
+
+                <div class="column">
+                    <h2>Documentos Descargables</h2>
+                    <div class="document-list">
+                        <div class="document-item">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Formato de registro SISS</span>
+                            <a href="#" class="download-link">
+                                <i class="fas fa-download"></i>
+                                <span>Descargar</span>
+                            </a>
+                        </div>
+                        <div class="document-item">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Formato de reporte bimestral</span>
+                            <a href="#" class="download-link">
+                                <i class="fas fa-download"></i>
+                                <span>Descargar</span>
+                            </a>
+                        </div>
+                        <div class="document-item">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Guía para elaboración de informe final</span>
+                            <a href="#" class="download-link">
+                                <i class="fas fa-download"></i>
+                                <span>Descargar</span>
+                            </a>
+                        </div>
+                        <div class="document-item">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Formato de carta de terminación</span>
+                            <a href="#" class="download-link">
+                                <i class="fas fa-download"></i>
+                                <span>Descargar</span>
+                            </a>
+                        </div>
+                        <div class="document-item">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Lineamientos de servicio social IPN</span>
+                            <a href="#" class="download-link">
+                                <i class="fas fa-download"></i>
+                                <span>Descargar</span>
+                            </a>
+                        </div>
+                        <div class="document-item">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Calendario de trámites</span>
+                            <a href="#" class="download-link">
+                                <i class="fas fa-download"></i>
+                                <span>Descargar</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                    <div class="important-notice">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <div>
+                            <h3>Importante</h3>
+                            <ul>
+                                <li>No se puede realizar servicio social en empresas privadas sin convenio con el IPN.
+                                </li>
+                                <li>El servicio social no es equivalente a las prácticas profesionales.</li>
+                                <li>No se puede liberar el servicio social por experiencia laboral.</li>
+                                <li>Los reportes extemporáneos pueden causar la cancelación del servicio.</li>
+                            </ul>
+                        </div>
+                    </div>
+            </div>
+
+           
+        </div>
+        </div>
+    </main>
+
+<!-- Footer --> 
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>UPIICSA</h3>
+                <p>Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas</p>
+                <!-- Se eliminó la línea de la dirección y se agregó el iframe del mapa -->
+                <div class="footer-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.3822354344256!2d-99.09442242565133!3d19.39588398187569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fc2e3efc321b%3A0xabf8454acb3a3a99!2sUPIICSA%20%E2%80%93%20Unidad%20Profesional%20Interdisciplinaria%20de%20Ingenier%C3%ADa%20y%20Ciencias%20Sociales%20y%20Administrativas%20IPN!5e0!3m2!1ses-419!2smx!4v1750303311647!5m2!1ses-419!2smx" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Enlaces</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="titulacion.html">Titulación</a></li>
+                    <li><a href="servicio-social.html">Servicio Social</a></li>
+                    <li><a href="practicas.html">Prácticas Profesionales</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>Teléfono: 55 5624 2000</li>
+                    <li>Email: gustavo.mazcorro@gmail.com</li>
+                    <li class="social-icons">
+                        <a href="https://www.facebook.com/upiicsa.ipn.oficial?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/upiicsa_oficial?igsh=MTUyaXJpaGtiM2UwZA==" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p> <span id="current-year"></span> UPIICSA - Instituto Politécnico Nacional. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+        <!--SCRIPT PARA VALIDAR SI EL USUARIO TIENE TRÁMITES ACTIVOS-->
+        <script>
+          const user = JSON.parse(localStorage.getItem("usuario"));
+          const studentId = user?.id;
+        
+          // Detectar tipo de trámite según la página actual
+          let tipo = "";
+          const ruta = window.location.pathname.toLowerCase();
+        
+          if (ruta.includes("servicio-social.html")) {
+            tipo = "Servicio Social";
+          } else if (ruta.includes("practicas.html")) {
+            tipo = "Prácticas Profesionales";
+          } else if (ruta.includes("titulacion.html")) {
+            tipo = "Titulación";
+          }
+        
+          if (studentId && tipo) {
+            fetch(`php/includes/validarTramitesUsuario.php?student_id=${studentId}&tipo=${encodeURIComponent(tipo)}`)
+              .then(res => res.json())
+              .then(data => {
+                const btnIniciar = document.getElementById("btnIniciar");
+                const btnConsultar = document.getElementById("btnConsultar");
+              
+                if (data.success) {
+                  if (data.hasActiveProcess) {
+                    if (btnIniciar) btnIniciar.style.display = "none";
+                    if (btnConsultar) btnConsultar.style.display = "inline-block";
+                  } else {
+                    if (btnIniciar) btnIniciar.style.display = "inline-block";
+                    if (btnConsultar) btnConsultar.style.display = "none";
+                  }
+                } else {
+                  console.warn("Respuesta incorrecta:", data.message);
+                }
+              })
+              .catch(err => console.error("Error en la verificación:", err));
+          } else {
+            console.warn("No hay usuario o tipo de trámite válido.");
+          }
+        </script>
+
+        <!-- Script que inserta el modal INICIAR SEGUIMIENTO -->
+        <script>
+          fetch('modals/modal_startProcess.html')
+            .then(response => response.text())
+            .then(html => {
+              document.getElementById('contenedor-modal').innerHTML = html;
+            });
+        </script>
+
+        <!-- Script que inserta el modal SEGUIMIENTO -->
+        <script>
+          fetch('modals/modal_processMonitoring.html')
+            .then(res => res.text())
+            .then(html => {
+              document.getElementById('contenedor-modal-seguimiento').innerHTML = html;
+            });
+        </script>
+
+    <script src="js/php/phpJS.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/chat.js"></script>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+
+</body>
+
+</html>

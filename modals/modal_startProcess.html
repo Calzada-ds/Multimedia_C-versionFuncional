@@ -1,0 +1,48 @@
+<!-- modal.html -->
+<div class="modal-overlay" id="miModal">
+  <div class="modal">
+    <span class="close-btn" onclick="cerrarModal()">✖</span>
+    <h2>Formulario de Documentos</h2>
+
+    <div class="form-group">
+      <label for="carrera">¿De qué carrera eres?</label>
+      <select id="carrera" class="form-control">
+        <option value="">Selecciona tu carrera</option>
+        <option>Licenciatura en Administración Industrial</option>
+        <option>Ingeniería en Informática</option>
+        <option>Ingeniería en Transporte</option>
+        <option>Ingeniería Industrial</option>
+        <option>Licenciatura en Ciencias de la Informática</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Semestre:</label>
+      <input type="text" id="semestre" placeholder="Ej. 4°">
+    </div>
+
+    <div class="form-group">
+      <label>1er documento:</label>
+      <input type="file" id="doc1">
+    </div>
+
+    <div class="form-group">
+      <label>2do documento:</label>
+      <input type="file" id="doc2">
+    </div>
+
+    <div class="form-group">
+      <label>3er documento:</label>
+      <input type="file" id="doc3">
+    </div>
+
+    <div class="form-group">
+      <label>Notas:</label>
+      <textarea rows="3" id="notas" placeholder="Escribe tus notas aquí..."></textarea>
+    </div>
+
+    <div class="error-message" id="errorMsg"></div>
+
+    <button class="btn" onclick="validarYEnviar()">Enviar archivos</button>
+  </div>
+</div>

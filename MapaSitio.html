@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de Sitio - Portal Integral de Egreso | IPN</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f8f9fc 0%, #eef2f7 100%);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .ipn-header {
+            background: linear-gradient(135deg, #9d2449 0%, #7a1c3a 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(157, 36, 73, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ipn-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #9d2449, #7a1c3a, #9d2449);
+        }
+        
+        .ipn-header h1 {
+            font-size: 2.8rem;
+            color: white;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 10px;
+            font-weight: 500;
+        }
+        
+        .ipn-logo {
+            width: 100px;
+            height: auto;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+        
+        .site-map {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            position: relative;
+            padding: 20px;
+        }
+        
+        /* Home Container */
+        .home-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 120px;
+            position: relative;
+        }
+        
+        .home-item {
+            background: linear-gradient(135deg, #9d2449 0%, #8a1f41 100%);
+            border-radius: 15px;
+            padding: 40px 50px;
+            width: 450px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(157, 36, 73, 0.3);
+            position: relative;
+            z-index: 3;
+            color: white;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        
+        .home-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(157, 36, 73, 0.4);
+        }
+        
+        .home-item i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .home-item h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .home-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        /* Diagonal Connectors */
+        .diagonal-connectors {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            z-index: 2;
+        }
+        
+        .connector {
+            position: absolute;
+            height: 4px;
+            background: #9d2449;
+            transform-origin: top left;
+            box-shadow: 0 2px 5px rgba(157, 36, 73, 0.3);
+            z-index: 1;
+        }
+        
+        .connector::before, .connector::after {
+            content: "";
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #9d2449;
+            box-shadow: 0 2px 5px rgba(157, 36, 73, 0.3);
+        }
+        
+        .connector::before {
+            top: -6px;
+            left: -8px;
+        }
+        
+        .connector::after {
+            bottom: -6px;
+            right: -8px;
+        }
+        
+        /* Posiciones específicas para los conectores */
+        .connector-1 {
+            top: 110px;
+            left: 12%;
+            width: 220px;
+            transform: rotate(-30deg);
+        }
+        
+        .connector-2 {
+            top: 120px;
+            left: 40%;
+            width: 100px;
+            transform: rotate(-90deg);
+        }
+        
+        .connector-3 {
+            top: 20px;
+            left: 60%;
+            width: 100px;
+            transform: rotate(90deg);
+        }
+        
+        .connector-4 {
+            top: 10px;
+            left: 70%;
+            width: 220px;
+            transform: rotate(30deg);
+        }
+        
+        /* Main Content */
+        .main-row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+        
+        .main-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 240px;
+            position: relative;
+            z-index: 3;
+        }
+        
+        .main-item {
+            background: #9d2449;
+            border-radius: 12px;
+            padding: 30px 20px;
+            width: 100%;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(157, 36, 73, 0.25);
+            position: relative;
+            z-index: 2;
+            color: white;
+            margin-bottom: 25px;
+        }
+        
+        .main-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(157, 36, 73, 0.35);
+            background: #8a1f41;
+        }
+        
+        .main-item i {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .main-item h2 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .vertical-connector {
+            height: 50px;
+            width: 4px;
+            background: #9d2449;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 2px 5px rgba(157, 36, 73, 0.3);
+        }
+        
+        .vertical-connector::before, .vertical-connector::after {
+            content: "";
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #9d2449;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 2px 5px rgba(157, 36, 73, 0.3);
+        }
+        
+        .vertical-connector::before {
+            top: -8px;
+        }
+        
+        .vertical-connector::after {
+            bottom: -8px;
+        }
+        
+        .sub-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            margin-top: 25px;
+        }
+        
+        .sub-item {
+            background: white;
+            border: 2px solid #9d2449;
+            border-radius: 10px;
+            padding: 20px 15px;
+            width: 100%;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .sub-item:hover {
+            background: #9d2449;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(157, 36, 73, 0.25);
+        }
+        
+        .sub-item:hover h3, .sub-item:hover p {
+            color: white;
+        }
+        
+        .sub-item h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #9d2449;
+            margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+        
+        .sub-item p {
+            font-size: 0.95rem;
+            color: #5a5a5a;
+            transition: color 0.3s;
+            line-height: 1.4;
+        }
+        
+        /* IPN Design Elements */
+        .ipn-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239d2449' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M54.627 0h.37L59.52 9.1l-4.944 8.464-4.944-8.464L54.627 0zm-40.86 0h.37L18.66 9.1l-4.944 8.464L8.772 9.1 13.767 0zM27.295 20h.369l4.922 9.1-4.944 8.464-4.944-8.464L27.295 20zm-40.86 0h.37L8.772 29.1l-4.944 8.464L-1.116 29.1 3.88 20h.37zm80.753 0l4.922 9.1-4.944 8.464-4.944-8.464L84.648 20zM54.627 40h.37l4.922 9.1-4.944 8.464-4.944-8.464L54.627 40zm-40.86 0h.37l4.923 9.1-4.944 8.464-4.945-8.464L13.767 40zM27.295 60h.369l4.922-9.1-4.944-8.464-4.944 8.464L27.295 60zm-40.86 0h.37l4.922-9.1-4.944-8.464-4.944 8.464L3.88 60h.37zm80.753 0l4.922-9.1-4.944-8.464-4.944 8.464L84.648 60z'/%3E%3C/g%3E%3C/svg%3E");
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .ipn-stripe {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 30%;
+            height: 100%;
+            background: linear-gradient(135deg, #9d2449 0%, #7a1c3a 100%);
+            z-index: 0;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%);
+            opacity: 0.08;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 25px;
+            font-size: 1.1rem;
+            color: #5a5a5a;
+            border-top: 2px solid #9d2449;
+            position: relative;
+            z-index: 10;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .footer strong {
+            color: #9d2449;
+            font-weight: 700;
+        }
+        
+        .ipn-motto {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-top: 5px;
+            color: #9d2449;
+        }
+        
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0); }
+        }
+        
+        .home-item {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        
+        .main-item {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        
+        .sub-item {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        .vertical-connector {
+            animation: float 2s ease-in-out infinite;
+        }
+        
+        /* Diseño responsivo */
+        @media (max-width: 1000px) {
+            .main-row {
+                gap: 20px;
+            }
+            
+            .main-column {
+                width: 45%;
+                min-width: 280px;
+            }
+            
+            .diagonal-connectors {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .home-item {
+                width: 90%;
+                padding: 30px 20px;
+            }
+            
+            .main-row {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+            }
+            
+            .main-column {
+                width: 90%;
+                max-width: 400px;
+            }
+            
+            .ipn-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .home-item h2 {
+                font-size: 1.8rem;
+            }
+            
+            .home-container {
+                margin-bottom: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ipn-pattern"></div>
+    <div class="ipn-stripe"></div>
+    
+    <div class="container">
+        
+        <div class="site-map">
+            <!-- Home Page -->
+            <div class="home-container">
+                <div class="home-item">
+                    <i class="fas fa-home"></i>
+                    <h2>Pagina principal</h2>
+                    <p>Página principal del portal</p>
+                </div>
+                
+                <!-- Diagonal Connectors -->
+                <div class="diagonal-connectors">
+                    <div class="connector connector-1"></div>
+                    <div class="connector connector-2"></div>
+                    <div class="connector connector-3"></div>
+                    <div class="connector connector-4"></div>
+                </div>
+            </div>
+            
+            <!-- Main Sections -->
+            <div class="main-row">
+                <!-- Columna Titulación -->
+                <div class="main-column">
+                    <div class="main-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h2>Titulación</h2>
+                    </div>
+                    
+                    <div class="vertical-connector"></div>
+                    
+                    <div class="sub-group">
+                        <div class="sub-item">
+                            <h3>Proceso de Titulación</h3>
+                            <p>Guía paso a paso para titularse</p>
+                        </div>
+                        
+                        <div class="sub-item">
+                            <h3>Modalidades de Titulación</h3>
+                            <p>Opciones disponibles en el IPN</p>
+                        </div>
+                        
+                        <div class="sub-item">
+                            <h3>Requisitos Académicos</h3>
+                            <p>Documentación necesaria</p>
+                        </div>
+                        
+                        <div class="sub-item">
+                            <h3>Calendario de Titulación</h3>
+                            <p>Fechas importantes del proceso</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Columna Servicio Social -->
+                <div class="main-column">
+                    <div class="main-item">
+                        <i class="fas fa-hands-helping"></i>
+                        <h2>Servicio Social</h2>
+                    </div>
+                    
+                    <div class="vertical-connector"></div>
+                    
+                    <div class="sub-group">
+                        <div class="sub-item">
+                            <h3>Registro de Servicio Social</h3>
+                            <p>Inicia tu servicio en el IPN</p>
+                        </div>
+                        
+                        <div class="sub-item">
+                            <h3>Proyectos Disponibles</h3>
+                            <p>Oportunidades actuales</p>
+                        </div>
+                        
+                        <div class="sub-item">
+                            <h3>Reportes y Avances</h3>
+                            <p>Seguimiento de tu servicio</p>
+                        </div>
+                        
+                        <div class="sub-item">
+                            <h3>Convocatorias</h3>
+                            <p>Nuevos programas sociales</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Columna Prácticas Profesionales -->
+                <div class="main-column">
+                    <div class="main-item">
+                        <i class="fas fa-briefcase"></i>
+                        <h2>Prácticas Profesionales</h2>
+                    </div>
+                    
+                    <div class="vertical-connector"></div>
+                    
+                    <div class="sub-group">
+                        <div class="sub-item">
+                            <h3>Empresas Convenio IPN</h3>
+                            <p>Socios estratégicos</p>
+                        </div>
+                        
+                        <div class="sub-item">
+                            <h3>Registro de Prácticas</h3>
+                            <p>Formaliza tu experiencia</p>
+                        </div>
+                        
+                        <div class="sub-item">
+                            <h3>Evaluación Final</h3>
+                            <p>Calificación y retroalimentación</p>
+                        </div>
+                        
+        
+                    </div>
+                </div>
+                
+                <!-- Columna Documentación -->
+                <div class="main-column">
+                    <div class="main-item">
+                        <i class="fas fa-folder-open"></i>
+                        <h2>Documentación</h2>
+                    </div>
+                    
+                    <div class="vertical-connector"></div>
+                    
+                    <div class="sub-group">
+                        <div class="sub-item">
+                            <h3>Formatos Oficiales</h3>
+                            <p>Documentos descargables</p>
+                        </div>
+                        
+                        <div class="sub-item">
+                            <h3>Guías de Trámites</h3>
+                            <p>Instrucciones paso a paso</p>
+                        </div>
+                        
+                        <div class="sub-item">
+                            <h3>Normativa IPN</h3>
+                            <p>Reglamentos y lineamientos</p>
+                        </div>
+                        
+                        <div class="sub-item">
+                            <h3>Procedimientos Administrativos</h3>
+                            <p>Trámites y procesos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Instituto Politécnico Nacional</strong></p>
+            <p>Portal Integral de Prácticas y Servicio Social de UPIICSA © 2025 | Todos los derechos reservados</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animación de elementos con retraso
+            const homeItem = document.querySelector('.home-item');
+            const mainItems = document.querySelectorAll('.main-item');
+            const subItems = document.querySelectorAll('.sub-item');
+            const verticalConnectors = document.querySelectorAll('.vertical-connector');
+            const diagonalConnectors = document.querySelectorAll('.connector');
+            
+            // Configurar estado inicial
+            homeItem.style.opacity = "0";
+            homeItem.style.transform = "translateY(30px)";
+            
+            mainItems.forEach(item => {
+                item.style.opacity = "0";
+                item.style.transform = "translateY(20px)";
+            });
+            
+            subItems.forEach(item => {
+                item.style.opacity = "0";
+                item.style.transform = "translateY(15px)";
+            });
+            
+            verticalConnectors.forEach(item => {
+                item.style.opacity = "0";
+            });
+            
+            diagonalConnectors.forEach(item => {
+                item.style.opacity = "0";
+            });
+            
+            // Animar home item
+            setTimeout(() => {
+                homeItem.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+                homeItem.style.opacity = "1";
+                homeItem.style.transform = "translateY(0)";
+            }, 300);
+            
+            // Animar conectores diagonales
+            setTimeout(() => {
+                diagonalConnectors.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.style.transition = "opacity 0.6s ease";
+                        item.style.opacity = "1";
+                    }, 200 * index);
+                });
+            }, 600);
+            
+            // Animar elementos principales
+            setTimeout(() => {
+                mainItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+                        item.style.opacity = "1";
+                        item.style.transform = "translateY(0)";
+                    }, 200 * index);
+                });
+            }, 1000);
+            
+            // Animar conectores verticales
+            setTimeout(() => {
+                verticalConnectors.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.style.transition = "opacity 0.8s ease";
+                        item.style.opacity = "1";
+                    }, 200 * index + 300);
+                });
+            }, 1400);
+            
+            // Animar subelementos
+            setTimeout(() => {
+                subItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+                        item.style.opacity = "1";
+                        item.style.transform = "translateY(0)";
+                    }, 100 * (index % 4) + 100);
+                });
+            }, 1700);
+        });
+    </script>
+</body>
+</html>

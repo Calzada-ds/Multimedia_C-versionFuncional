@@ -1,0 +1,43 @@
+/* ————— Solo estilos del chat dentro de #app ————— */
+html, body {
+  height: auto !important;
+  overflow-y: auto !important;
+}
+
+#app .chat-button {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background-color: var(--upiicsa-green, #006341);
+  color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.05);
+  z-index: 1000;
+  transition: background-color 0.2s;
+}
+
+#app .chat-button:hover {
+  background-color: var(--upiicsa-green-dark, #004d33);
+}
+
+#app .convai-chatui-container {
+  position: fixed !important;
+  bottom: 6.5rem;   /* espacio para no tapar el botón */
+  right: 1.5rem;
+  width: 20rem;
+  height: 30rem;
+  z-index: 1001;
+  pointer-events: none; /* pasa clicks cuando esté cerrado */
+}
+
+#app .convai-chatui-container > * {
+  pointer-events: auto; /* habilita interacciones dentro del chat */
+}

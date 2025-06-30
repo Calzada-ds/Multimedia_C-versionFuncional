@@ -1,0 +1,319 @@
+/* Variables CSS para tipografía */
+:root {
+  --font-main: "Montserrat", sans-serif;
+}
+
+/* Reset box-sizing para incluir padding y borde dentro del tamaño total */
+* {
+  box-sizing: border-box;
+}
+
+/* Estilo general del body con fuente principal y color de texto */
+body {
+  font-family: var(--font-main);
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* Contenedor principal con altura doble viewport para scroll
+   y fondo con imagen de login */
+.container {
+  height: 200vh;
+  background-image: url('../img/back_login.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Estilo base del modal: fijo, parte inferior con altura reducida inicialmente,
+   fondo semitransparente oscuro, centrado de contenido vertical y horizontal */
+.modal {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background: rgba(51, 51, 51, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: 0.4s;
+}
+
+/* Contenedor interno del modal con máximo ancho,
+   esquinas redondeadas, oculto inicialmente (opacity 0, sin pointer events),
+   fondo blanco, y transform para animar entrada */
+.modal-container {
+  display: flex;
+  max-width: 720px;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  background: #fff;
+  transform: translateY(100px) scale(0.4);
+}
+
+/* Título principal del modal con color y tamaño personalizados */
+.modal-title {
+  font-size: 26px;
+  margin: 0;
+  font-weight: 400;
+  color: #55311c;
+}
+
+/* Descripción o subtítulo del modal con margen inferior */
+.modal-desc {
+  margin: 6px 0 30px 0;
+}
+
+/* Parte izquierda del modal, donde va el formulario,
+   con relleno, fondo blanco, ocupa más espacio (flex 1.5),
+   inicialmente está desplazado y transparente para animar entrada */
+.modal-left {
+  padding: 60px 30px 20px;
+  background: #fff;
+  flex: 1.5;
+  transition: 0.5s;
+  transform: translateY(80px);
+  opacity: 0;
+}
+
+/* Botón principal que abre el modal:
+   colores, tipografía, tamaño, bordes redondeados, sombra, etc. */
+.modal-button {
+  color: #7a655c;
+  font-family: "Nunito", sans-serif;
+  font-size: 18px;
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+  padding: 10px 40px;
+  border-radius: 30px;
+  background: #fff;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.16);
+  transition: 0.3s;
+}
+
+/* Cambio visual cuando se pasa el mouse sobre el botón */
+.modal-button:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* Parte derecha del modal que contiene imagen,
+   ocupa más espacio (flex 2),
+   tamaño de fuente 0 para evitar espacio en línea,
+   overflow oculto para evitar que imagen sobresalga */
+.modal-right {
+  flex: 2;
+  font-size: 0;
+  transition: 0.3s;
+  overflow: hidden;
+}
+
+/* Imagen del modal derecha,
+   ocupa todo el espacio, se escala para efecto visual,
+   y se adapta para que se vea bien */
+.modal-right img {
+  width: 100%;
+  height: 100%;
+  transform: scale(2);
+  object-fit: cover;
+  transition: 1.2s;
+}
+
+/* Estado cuando el modal está abierto:
+   ocupa toda la pantalla y fondo más oscuro */
+.modal.is-open {
+  height: 100%;
+  background: rgba(51, 51, 51, 0.85);
+}
+
+/* Oculta el botón principal cuando el modal está abierto */
+.modal.is-open .modal-button {
+  opacity: 0;
+}
+
+/* Hace visible el contenedor del modal y lo anima */
+.modal.is-open .modal-container {
+  opacity: 1;
+  transition: 0.6s;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+/* Ajusta la escala de la imagen cuando el modal está abierto */
+.modal.is-open .modal-right img {
+  transform: scale(1);
+}
+
+/* Hace visible y anima la parte izquierda con formulario */
+.modal.is-open .modal-left {
+  transform: translateY(0);
+  opacity: 1;
+  transition-delay: 0.1s;
+}
+
+/* Contenedor para los botones del modal (login, links),
+   con distribución en fila, espacio entre ellos y alineación */
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Estilos para los enlaces dentro de modal-buttons */
+.modal-buttons a {
+  color: rgba(51, 51, 51, 0.6);
+  font-size: 14px;
+}
+
+/* Sección para mensajes tipo "¿No tienes cuenta?" con margen y centrado */
+.sign-up {
+  margin: 60px 0 0;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Estilo para enlaces dentro de sign-up */
+.sign-up a {
+  color: #8c7569;
+}
+
+/* Botón de entrada o registro dentro del modal,
+   con colores, bordes, tipografía y efectos visuales */
+.input-button {
+  padding: 8px 12px;
+  outline: none;
+  border: 0;
+  color: #fff;
+  border-radius: 4px;
+  background: #8c7569;
+  font-family: "Nunito", sans-serif;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+/* Cambio de color al pasar el mouse por el botón */
+.input-button:hover {
+  background: #55311c;
+}
+
+/* Estilo para etiquetas de inputs, con mayúsculas y espaciado */
+.input-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  color: #8c7569;
+  transition: 0.3s;
+}
+
+/* Bloque que contiene cada input y su label,
+   con margen, padding y borde para diseño */
+.input-block {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+/* Estilo para los inputs dentro de input-block,
+   sin borde ni outline, con padding superior y fuente */
+.input-block input {
+  outline: 0;
+  border: 0;
+  padding: 4px 0 0;
+  font-size: 14px;
+  font-family: "Nunito", sans-serif;
+}
+
+/* Placeholder de los inputs en color gris claro */
+.input-block input::placeholder {
+  color: #ccc;
+  opacity: 1;
+}
+
+/* Al enfocar un input, cambia el color del borde */
+.input-block:focus-within {
+  border-color: #8c7569;
+}
+
+/* Cambia el color de la etiqueta cuando el input está enfocado */
+.input-block:focus-within .input-label {
+  color: rgba(140, 117, 105, 0.8);
+}
+
+/* Botón pequeño con icono para cerrar modal */
+.icon-button {
+  outline: 0;
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Mensaje de scroll down centrado en pantalla, con texto grande y negrita */
+.scroll-down {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: black;
+  font-size: 32px;
+  font-weight: 800;
+  transform: translate(-50%, -50%);
+}
+
+/* Estilo para el icono SVG dentro del scroll down */
+.scroll-down svg {
+  margin-top: 16px;
+  width: 52px;
+  fill: currentColor;
+}
+
+/* Media query para dispositivos con ancho máximo 750px (tablets y móviles) */
+@media (max-width: 750px) {
+  /* El contenedor modal se reduce al 90% del ancho de pantalla */
+  .modal-container {
+    width: 90%;
+  }
+  /* Se oculta la parte derecha (imagen) para simplificar diseño */
+  .modal-right {
+    display: none;
+  }
+}
+
+/* Contenedor relativo para inputs con contraseña y botón para mostrar/ocultar */
+.password-block {
+  position: relative;
+}
+
+/* Botón pequeño para mostrar/ocultar contraseña,
+   posicionado dentro del input con icono y cursor pointer */
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #8c7569;
+}

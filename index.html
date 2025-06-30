@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Integral de Prácticas y Servicio Social de UPIICSA</title>
+    <link rel="stylesheet" href="public/css/styles.css">
+    <link rel="stylesheet" href="src/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- Header -->
+<header class="header">
+    <!-- Fila de logos -->
+    <div class="logos-row">
+        <img src="public/img/U_Logo.png" alt="Logo UPIICSA" class="logo logo-side">
+         <model-viewer src="FBX_F/Dragon Scholar Emblem 0521170525 texture.gltf" alt="Dragon" auto-rotate>
+                </model-viewer>
+        <img src="public/img/IPN_Logo.png" alt="Logo IPN" class="logo logo-side">
+    </div>
+
+    <!-- Fila de título -->
+    <div class="container title-row">
+        <h1 class="site-title">Portal Integral de Prácticas y Servicio Social de UPIICSA</h1>
+    </div>
+
+    <!-- Fila de navegación -->
+    <div class="container nav-row">
+        <!-- Checkbox oculto para controlar el menú móvil -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+
+        <!-- Label que funciona como botón hamburguesa -->
+        <label for="menu-toggle" class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </label>
+
+        <!-- Menú principal -->
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="titulacion.html">Titulación</a></li>
+                <li><a href="servicio-social.html">Servicio Social</a></li>
+                <li><a href="practicas.html">Prácticas Profesionales</a></li>
+                <li><a href="documentacion.html">Documentación</a></li>
+                <li><a href="MapaSitio.html">Mapa de Sitio</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+    <main>
+        <!-- Hero Section with Carousel -->
+        <section class="banner_total">
+            <div class="banner">
+                <div class="slider" style="--quantity: 10">
+                    <div class="item" style="--position: 1"><img src="public/img/LogoM.png" alt=""></div>
+                    <div class="item" style="--position: 2"><img src="public/img/A_1.png" alt=""></div>
+                    <div class="item" style="--position: 3"><img src="public/img/A_2.png" alt=""></div>
+                    <div class="item" style="--position: 4"><img src="public/img/A_3.png" alt=""></div>
+                    <div class="item" style="--position: 5"><img src="public/img/A_1.png" alt=""></div>
+                    <div class="item" style="--position: 6"><img src="public/img/A_2.png" alt=""></div>
+                    <div class="item" style="--position: 7"><img src="public/img/A_3.png" alt=""></div>
+                    <div class="item" style="--position: 8"><img src="public/img/A_1.png" alt=""></div>
+                    <div class="item" style="--position: 9"><img src="public/img/A_2.png" alt=""></div>
+                    <div class="item" style="--position: 10"><img src="public/img/A_3.png" alt=""></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Trámites Carousel Section -->
+        <section class="procedures-section">
+            <div class="container">
+                <h2 class="section-title">Trámites Principales</h2>
+                <div class="procedures-carousel">
+                    <div class="procedures-container">
+                        <div class="procedure-card">
+                            <a href="servicio-social.html">
+                                <div class="procedure-content">
+                                    <h3>Trámite 1</h3>
+                                    <span>Servicio Social</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="procedure-card">
+                            <a href="practicas.html">
+                                <div class="procedure-content">
+                                    <h3>Trámite 2</h3>
+                                    <span>Prácticas Profesionales</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="procedure-card">
+                            <a href="documentacion.html">
+                                <div class="procedure-content">
+                                    <h3>Trámite 3</h3>
+                                    <span>Documentación</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="procedure-card">
+                            <a href="titulacion.html">
+                                <div class="procedure-content">
+                                    <h3>Trámite 4</h3>
+                                    <span>Titulación</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+  <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <h2 class="section-title">Conoce Nuestros Servicios</h2>
+            <div class="video-container">
+                <div class="main-video-container">
+                    <div class="video-placeholder" id="main-video-placeholder">
+                        <i class="fas fa-play-circle"></i>
+                        <h3>Video de Bienvenida</h3>
+                        <p>Conoce los servicios y trámites disponibles en UPIICSA</p>
+                    </div>
+                    <div class="main-video" id="main-video">
+                        <video controls>
+                            <source src="" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                
+                <div class="video-grid">
+                    <div class="video-item active" data-video="public/video/Bienvenida.mp4" data-title="Video de Bienvenida" data-description="Conoce los servicios y trámites disponibles en UPIICSA">
+                        <div class="video-thumbnail">
+                            <img src="public/img/LogoM.png" alt="Video de Bienvenida">
+                            <div class="play-icon">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="duration">0:24</div>
+                        </div>
+                        <div class="video-info">
+                            <h4>Video de Bienvenida</h4>
+                            <p>Conoce los servicios y trámites disponibles en UPIICSA</p>
+                        </div>
+                    </div>
+                    
+                    <div class="video-item" data-video="public/video/Guia.mp4" data-title="Guía de Titulación" data-description="Proceso completo para obtener tu título profesional">
+                        <div class="video-thumbnail">
+                            <img src="public/img/Titulacion.png" alt="Guía de Titulación">
+                            <div class="play-icon">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="duration">0:13</div>
+                        </div>
+                        <div class="video-info">
+                            <h4>Guía de Titulación</h4>
+                            <p>Proceso completo para obtener tu título profesional</p>
+                        </div>
+                    </div>
+                    
+                    <div class="video-item" data-video="public/video/Servicio Social.mp4" data-title="Servicio Social" data-description="Todo lo que necesitas saber sobre el servicio social">
+                        <div class="video-thumbnail">
+                            <img src="public/img/ServicioSocial.png" alt="Servicio Social">
+                            <div class="play-icon">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="duration">0:14</div>
+                        </div>
+                        <div class="video-info">
+                            <h4>Servicio Social</h4>
+                            <p>Todo lo que necesitas saber sobre el servicio social</p>
+                        </div>
+                    </div>
+                    
+                    <div class="video-item" data-video="public/video/Practicas.mp4" data-title="Prácticas Profesionales" data-description="Oportunidades y requisitos para prácticas profesionales">
+                        <div class="video-thumbnail">
+                            <img src="public/img/PracticasProfesionales.png" alt="Prácticas Profesionales">
+                            <div class="play-icon">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="duration">0:13</div>
+                        </div>
+                        <div class="video-info">
+                            <h4>Prácticas Profesionales</h4>
+                            <p>Oportunidades y requisitos para prácticas profesionales</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Footer --> 
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>UPIICSA</h3>
+                <p>Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas</p>
+                <!-- Se eliminó la línea de la dirección y se agregó el iframe del mapa -->
+                <div class="footer-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.3822354344256!2d-99.09442242565133!3d19.39588398187569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fc2e3efc321b%3A0xabf8454acb3a3a99!2sUPIICSA%20%E2%80%93%20Unidad%20Profesional%20Interdisciplinaria%20de%20Ingenier%C3%ADa%20y%20Ciencias%20Sociales%20y%20Administrativas%20IPN!5e0!3m2!1ses-419!2smx!4v1750303311647!5m2!1ses-419!2smx" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Enlaces</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="titulacion.html">Titulación</a></li>
+                    <li><a href="servicio-social.html">Servicio Social</a></li>
+                    <li><a href="practicas.html">Prácticas Profesionales</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>Teléfono: 55 5624 2000</li>
+                    <li>Email: gustavo.mazcorro@gmail.com</li>
+                    <li class="social-icons">
+                        <a href="https://www.facebook.com/upiicsa.ipn.oficial?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/upiicsa_oficial?igsh=MTUyaXJpaGtiM2UwZA==" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p> <span id="current-year"></span> UPIICSA - Instituto Politécnico Nacional. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+
+        <!-- ***********************
+       Punto de montaje React/Preact
+       *********************** -->
+        <div id="convai-root"></div>
+        <script type="module" src="src/main.jsx"></script>
+
+        <!-- Scripts de tu página -->
+        <script src="js/carousel.js"></script>
+        <script src="js/chat.js"></script>
+        <script src="js/main.js"></script>
+
+        <script type="module"
+            src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+
+</body>
+
+</html>
