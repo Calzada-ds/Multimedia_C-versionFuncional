@@ -1660,6 +1660,7 @@ section:nth-child(even) {
   gap: 2rem;
 }
 
+
 /* Document List */
 .document-list {
   display: flex;
@@ -1705,38 +1706,126 @@ section:nth-child(even) {
   font-size: 1.25rem;
 }
 
-@media (max-width: 468px) {
-  .document-list {
-    gap: 0.75rem;
-    padding: 0 8px;
+/* Media Queries para dispositivos pequeños */
+@media (max-width: 767px) {
+  .content-section.two-columns {
+    flex-direction: column;
   }
+  
+  .content-section.two-columns .column {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  
+  .document-item {
+    flex-wrap: wrap;
+    padding: 12px;
+  }
+  
+  .document-item i.fas {
+    font-size: 18px;
+    margin-right: 10px;
+  }
+  
+  .document-item span {
+    flex: 1;
+    min-width: 0;
+    font-size: 14px;
+    line-height: 1.4;
+    word-wrap: break-word;
+    margin-right: 8px;
+  }
+  
+  .document-item .download-link {
+    flex-shrink: 0;
+    padding: 6px 10px;
+    font-size: 13px;
+    margin-top: 8px;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .document-item .download-link span {
+    margin-left: 5px;
+  }
+  
+  .contact-section {
+    padding: 15px;
+  }
+  
+  .contact-section h3 {
+    font-size: 18px;
+  }
+  
+  .contact-section p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .coordinator {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .coordinator i.fas {
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+  
+  .coordinator .coordinator-title {
+    font-weight: 600;
+  }
+}
 
+/* Media Query específica para 468px - 767px */
+@media (min-width: 468px) and (max-width: 767px) {
+  .document-item {
+    flex-wrap: nowrap;
+  }
+  
+  .document-item .download-link {
+    width: auto;
+    margin-top: 0;
+  }
+  
+  .document-item span {
+    flex-basis: 60%;
+  }
+  
+  .coordinator {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .coordinator i.fas {
+    margin-right: 12px;
+    margin-bottom: 0;
+  }
+}
+
+/* Media Query para dispositivos muy pequeños (menos de 468px) */
+@media (max-width: 467px) {
   .document-item {
     flex-direction: column;
     align-items: flex-start;
-    padding: 0.75rem;
-    gap: 0.5rem;
   }
-
-  .document-item i {
-    font-size: 1.25rem;
-    margin-right: 0;
-    margin-bottom: 0.25rem;
+  
+  .document-item i.fas {
+    margin-bottom: 8px;
   }
-
+  
   .document-item span {
-    font-size: 14px;
+    margin-bottom: 8px;
     width: 100%;
   }
-
-  .download-link {
-    font-size: 13px;
-    gap: 0.25rem;
+  
+  .document-item .download-link {
+    align-self: stretch;
+    text-align: center;
   }
-
-  .download-link i {
-    font-size: 1rem;
-    margin-right: 0.25rem;
+  
+  .contact-section {
+    padding: 12px;
   }
 }
 
